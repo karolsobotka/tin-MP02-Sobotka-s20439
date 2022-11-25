@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pl">
+    <head>
+        <meta name="lang" content="pl-PL"/>
+        <link rel="stylesheet" href="/css/style.css">
+        <meta name="charset" content="UTF-8"/>
+        <meta name="content-type" content="text/html"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>MP01 - Edit Employees</title>
+    </head>
+    
+   
+    <body>
+        <header id="header">
+            
+            <h1 class="h1-header">Pan Samochodzik - panel administracyjny</h1>
+            <img src="/resources/images/mechanik.jpg" id="header-img" alt="Pan Samochodzik logo" />
+        </header>
+        <nav>
+            <ul>
+                <li><a href="/index.html">Strona Główna</a></li> 
+                <li><a href="/pages/cars/cars.html">Auta</a></li> 
+                <li><a href="/pages/employee/list.html">Mechanicy</a></li>
+                <li><a href="/pages/repairs/repairs.html" class="active">Naprawy</a></li>      
+             </ul>
+        </nav>
+        <main>
+         <h1>Edytowanie naprawy</h1>
+         
+         <form class="form">
+            <label for="carName"> Auto <span class="symbol-required">*</span></label> 
+            <input type="text" name="carName" id="carName" value="Audi RS8, WWL XX2200" required/>
+            <span id="errorCarName" class="error-text"></span>
+
+            <label for="mechanic"> Mechanik <span class="symbol-required">*</span></label>
+            <input type="text" name="mechanic" id="mechanic" value="Sobotka" required/>
+            <span id="errorMechanic" class="error-text"></span>
+
+
+            <label for="description">Opis </label>
+            <input type="text" name="description" id="description" value="Uszczelka pod głowicą, wymiana opon" />
+            <span id="errorDescription" class="error-text"></span>
+
+            <label for="repairDate">Data naprawy<span class="symbol-required">*</span></label> <input type="date" name="repairDate" id="repairDate" value="2022-06-20" required/>
+            <div class="form-buttons">
+                <input type="submit" value="Dodaj" class="form-button-submit"/>
+                <a href="/index.html" class="form-button-cancel">Anuluj</a>
+                <p id="errorsSummary" class="error-text"></p>
+            </div>
+         </form>
+        </main>
+        <footer >
+            <a id="footer-a">Karol Sobotka s20439@pjwstk.edu.pl</a>
+        </footer>
+    </body>
+   
+
+</html>
+
