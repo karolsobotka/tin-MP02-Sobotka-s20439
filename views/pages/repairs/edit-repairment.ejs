@@ -1,29 +1,5 @@
-<!DOCTYPE html>
-<html lang="pl">
-    <head>
-        <meta name="lang" content="pl-PL"/>
-        <link rel="stylesheet" href="/css/style.css">
-        <meta name="charset" content="UTF-8"/>
-        <meta name="content-type" content="text/html"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <title>MP01 - Edit Employees</title>
-    </head>
-    
-   
-    <body>
-        <header id="header">
-            
-            <h1 class="h1-header">Pan Samochodzik - panel administracyjny</h1>
-            <img src="/resources/images/mechanik.jpg" id="header-img" alt="Pan Samochodzik logo" />
-        </header>
-        <nav>
-            <ul>
-                <li><a href="/index.html">Strona Główna</a></li> 
-                <li><a href="/pages/cars/cars.html">Auta</a></li> 
-                <li><a href="/pages/employee/list.html">Mechanicy</a></li>
-                <li><a href="/pages/repairs/repairs.html" class="active">Naprawy</a></li>      
-             </ul>
-        </nav>
+<%- include('../../fragments/header.ejs') %>
+
         <main>
          <h1>Edytowanie naprawy</h1>
          
@@ -49,11 +25,4 @@
             </div>
          </form>
         </main>
-        <footer >
-            <a id="footer-a">Karol Sobotka s20439@pjwstk.edu.pl</a>
-        </footer>
-    </body>
-   
-
-</html>
-
+        <%- include('../../fragments/footer.ejs') %>
