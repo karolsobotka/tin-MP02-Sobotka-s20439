@@ -1,4 +1,6 @@
 <%- include('../../fragments/header.ejs') %>
+
+<script type="application/javascript" src="/resources/code/validateCarForm.js"></script>
         <main>
          <h1>Nowe auto</h1>
          <form class="form" novalidate onsubmit="return validateFormCar();">
@@ -16,7 +18,7 @@
            
             <div class="form-buttons">
                 <input type="submit" value="Dodaj" class="form-button-submit"/>
-                <a href="/index.html" class="form-button-cancel">Anuluj</a>
+                <a href="/index" class="form-button-cancel">Anuluj</a>
                 <p id="errorsSummary" class="error-text"></p>
             </div>
            

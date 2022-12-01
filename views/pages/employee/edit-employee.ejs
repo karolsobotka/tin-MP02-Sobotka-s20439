@@ -1,8 +1,9 @@
 <%- include('../../fragments/header.ejs') %>
 
+<script type="application/javascript" src="/resources/code/validateEmpForm.js"></script>
         <main>
          <h1>Edytowanie Pracownika</h1>
-         <form class="form">
+         <form class="form"  novalidate onsubmit="return validateFormEmployee();">
            <label for="firstName"> Imię: <span class="symbol-required">*</span></label> 
            <input type="text" name="firstName" id="firstName" value="Karol" required/>
            <span id="errorFirstName" class="error-text"></span>

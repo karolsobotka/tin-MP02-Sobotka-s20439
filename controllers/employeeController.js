@@ -3,9 +3,13 @@ exports.showEmployeeList = (req, res, next) => {
 }
 
 exports.showAddEmployeeForm = ( req, res, next) => {
-    res.render('pages/employee/add-employee', {navLocation: 'employee'});
+    res.render('pages/employee/add-employee', {navLocation: 'add'});
 }
 
 exports.showEmployeesDetails = ( req, res, next) => {
     res.render('pages/employee/employee-repairments', {navLocation: 'employee'});
+}
+
+exports.showEditEmployeeForm = ( req, res, next) => {
+    res.render('pages/employee/edit-employee', {navLocation: 'edit'});
 }

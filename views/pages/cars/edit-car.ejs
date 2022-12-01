@@ -1,8 +1,10 @@
 <%- include('../../fragments/header.ejs') %>
 
+<script type="application/javascript" src="/resources/code/validateCarForm.js"></script>
+
         <main>
          <h1>Edytowanie auta</h1>
-         <form class="form">
+         <form class="form" novalidate onsubmit="return validateFormCar();">
            <label for="maker">Marka <span class="symbol-required">*</span> </label>
            <input type="text" name="maker" id="maker" value="Audi" required/>
            <span id="errorMaker" class="error-text"></span>

@@ -1,9 +1,10 @@
 <%- include('../../fragments/header.ejs') %>
+<script type="application/javascript" src="/resources/code/validateFormRepairment.js"></script>
 
         <main>
          <h1>Edytowanie naprawy</h1>
          
-         <form class="form">
+         <form class="form"  novalidate onsubmit="return validateFormRepairment();">
             <label for="carName"> Auto <span class="symbol-required">*</span></label> 
             <input type="text" name="carName" id="carName" value="Audi RS8, WWL XX2200" required/>
             <span id="errorCarName" class="error-text"></span>
