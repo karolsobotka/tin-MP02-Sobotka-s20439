@@ -9,6 +9,10 @@ const employeeRouter = require('./routes/employeeRoute');
 const repairmentsRouter = require('./routes/repairmentsRoute');
 const carRouter = require('./routes/carRoute');
 
+const sequelizeInit = require('./config/sequelize/init');
+
+sequelizeInit().catch(err => {console.error(err)});
+
 var app = express();
 
 // view engine setup
