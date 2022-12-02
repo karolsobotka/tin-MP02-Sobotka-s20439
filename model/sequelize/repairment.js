@@ -26,4 +26,4 @@ const Repairment = sequelize.define('Repairment',{
     }
 });
 
-module.exports = Car;
+module.exports = Repairment;

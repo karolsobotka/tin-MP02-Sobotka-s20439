@@ -39,6 +39,6 @@ exports.updateEmployee = (empId, empData) => {
 
 exports.deleteEmployee = (empId) => {
     return Employee.destroy({
-        where: {_id: emp}
+        where: {_id: empId}
     })
 }

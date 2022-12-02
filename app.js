@@ -8,6 +8,7 @@ var indexRouter = require('./routes/index');
 const employeeRouter = require('./routes/employeeRoute');
 const repairmentsRouter = require('./routes/repairmentsRoute');
 const carRouter = require('./routes/carRoute');
+const empApiRouter = require('./routes/api/employeeApiRoute');
 
 const sequelizeInit = require('./config/sequelize/init');
 
@@ -29,6 +30,7 @@ app.use('/', indexRouter);
 app.use('/employee', employeeRouter);
 app.use('/repairments', repairmentsRouter);
 app.use('/cars', carRouter);
+app.use('/api/employee', empApiRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
