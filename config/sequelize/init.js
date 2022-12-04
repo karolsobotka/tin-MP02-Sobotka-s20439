@@ -1,5 +1,3 @@
-const Sequelize = require('sequelize');
-
 const Employee = require('../../model/sequelize/employee');
 const Car = require('../../model/sequelize/car');
 const Repairment = require('../../model/sequelize/repairment');
@@ -33,19 +31,35 @@ module.exports = () => {
             }
         })
         .then( emps => {
-            allEmps = emps;
+            allEmployees = emps;
             return Car.findAll();
         })
         .then( cars => {
-        if(!cars || cars.length ==0){
+        if(!cars || cars.length == 0){
             return Car.bulkCreate([
                 {maker: 'Mercedes-Benz', model: 'C300', plates: 'WWL 23201'},
                 {maker: 'Audi', model: 'Q6', plates: 'WX 53124'}
-            ]);
+            ]).then( () => {
+                return Employee.findAll();
+            });
         }else{
             return cars;
         }
         
+    })
+    .then( cars => {
+        allCars = cars;
+        return Repairment.findAll();
+    })
+    .then(repairments => {
+        if(!repairments || repairments.length == 0) {
+            return Repairment.bulkCreate([
+                {mechanic_id: allEmployees[0]._id, car_id: allCars[0]._id, description: 'xyz', repairment_date: '2001-01-01' },
+                {mechanic_id: allEmployees[1]._id, car_id: allCars[1]._id, description: 'zxy', repairment_date: '2002-02-02' },
+            ]);
+        } else {
+            return repairments;
+        }
     });
     
 }

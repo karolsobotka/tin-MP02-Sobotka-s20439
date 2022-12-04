@@ -52,6 +52,6 @@ exports.deleteRepairment = (repairmentId) => {
         where: { _id: repairmentId}});
     };
 
-exports.deleteManyRepairments = (repairmentsIds) => {
-    return Repairment.find({ _id: {[Sequelize.Op.in]: repairmentsIds}});
-};
+// exports.deleteManyRepairments = (repairmentsIds) => {
+//     return Repairment.find({ _id: {[Sequelize.Op.in]: repairmentsIds}});
+// };

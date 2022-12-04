@@ -1,3 +1,5 @@
+const Sequelize = require('sequelize');
+
 const Employee = require('../../model/sequelize/employee');
 const Car = require('../../model/sequelize/car');
 const Repairment = require('../../model/sequelize/repairment');
@@ -6,7 +8,7 @@ exports.getEmployees = () => {
     return Employee.findAll();
 };
 
-exports.getEmployeesById = (empId) => {
+exports.getEmployeeById = (empId) => {
     return Employee.findByPk(empId,
         {
             include: [{

@@ -1,3 +1,5 @@
+const Sequelize = require('sequelize');
+
 const Employee = require('../../model/sequelize/employee');
 const Car = require('../../model/sequelize/car');
 const Repairment = require('../../model/sequelize/repairment');
@@ -21,7 +23,7 @@ exports.getCarById = (carId) => {
 };
 
 exports.createCar = (newCarData) => {
-    return Employee.create({
+    return Car.create({
         maker: newCarData.maker,
         model: newCarData.model,
         plates: newCarData.plates,
