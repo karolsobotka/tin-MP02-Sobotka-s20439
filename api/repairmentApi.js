@@ -9,7 +9,7 @@ exports.getRepairments = (req, res, next) => {
     });
 };
 
-exports.getRepairmentsById = (req, res, next) => {
+exports.getRepairmentById = (req, res, next) => {
     const repairmentId = req.params.repairmentId;
     RepairmentRepository.getRepairmentById(repairmentId)
     .then(repairment =>{
@@ -37,9 +37,9 @@ exports.createRepairment = (req, res, next) => {
 
 exports.updateRepairment = (req, res, next) => {
     const repairmentId = req.params.repairmentId;
-    RepairmentRepository.updateEmployee(repairmentId, req.body)
+    RepairmentRepository.updateRepairment(repairmentId, req.body)
    .then(result  =>{
-    res.status(200).json({message: 'Repairment updated successfully', repairment: result});
+    res.status(200).json({message: 'Repairment updated successfully', Repairment: result});
    })
    .catch(err =>{
     if(!err.statusCode){
@@ -53,13 +53,14 @@ exports.updateRepairment = (req, res, next) => {
 exports.deleteRepairment = (req, res, next) => {
     const repairmentId = req.params.repairmentId;
     RepairmentRepository.deleteRepairment(repairmentId)
-    .then( result => {
-    res.status(200).json({message: 'Removed repairment successfully', repairment: result})
+    .then(result => {
+    res.status(200).json({message: 'Removed repairment successfully', Repairment: result});
+    })
     .catch(err => {
         if(!err.statusCode) {
             err.statusCode = 500;
         }
         next(err);
-    })
-    })
+    });
+    
 };

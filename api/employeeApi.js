@@ -54,12 +54,13 @@ exports.deleteEmployee = (req, res, next) => {
     const empId = req.params.empId;
     EmployeeRepository.deleteEmployee(empId)
     .then( result => {
-    res.status(200).json({message: 'Removed employee successfully', emp: result})
+    res.status(200).json({message: 'Removed employee successfully', emp: result});
+    })
     .catch(err => {
         if(!err.statusCode) {
             err.statusCode = 500;
         }
         next(err);
-    })
-    })
+    });
+    
 };

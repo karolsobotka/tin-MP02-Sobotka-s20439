@@ -36,7 +36,7 @@ exports.createCar = (req, res, next) => {
 };
 
 exports.updateCar = (req, res, next) => {
-    const carId = req.params.empId;
+    const carId = req.params.carId;
     CarRepository.updateCar(carId, req.body)
    .then(result  =>{
     res.status(200).json({message: 'Car updated successfully', car: result});
@@ -51,15 +51,16 @@ exports.updateCar = (req, res, next) => {
 };
 
 exports.deleteCar = (req, res, next) => {
-    const carId = req.params.empId;
+    const carId = req.params.carId;
     CarRepository.deleteCar(carId)
     .then( result => {
-    res.status(200).json({message: 'Removed car successfully', car: result})
+    res.status(200).json({message: 'Removed car successfully', car: result});
+    })
     .catch(err => {
         if(!err.statusCode) {
             err.statusCode = 500;
         }
         next(err);
-    })
-    })
+    });
+    
 };
