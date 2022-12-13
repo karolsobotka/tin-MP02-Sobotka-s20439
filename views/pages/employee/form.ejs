@@ -1,0 +1,77 @@
+<%- include('../../fragments/header.ejs') %>
+<script type="application/javascript" src="/public/resources/code/validateEmpForm.js"></script>
+
+        <main>
+         <h1><%= pageTitle %></h1>
+         <form class="form" method="post" action="<%formAction%>" novalidate onsubmit="return validateFormEmployee();">
+         
+          <input type="hidden" name="_id" value="<%= emp._id %>">
+
+           <label for="firstName">Imię <span class="symbol-required">*</span></label> 
+           <input type="text" name="firstName" id="firstName" placeholder="2-60 znaków"  
+            value="<%= emp.firstName %>" <%= (formMode == 'showDetails') ? 'disabled' : '' %> />
+           <span id="errorFirstName" class="error-text"></span>
+
+           <label for="lastName" > Nazwisko <span class="symbol-required">*</span></label>
+            <input type="text" name="lastName" id="lastName"  placeholder="2-60 znaków" 
+             value="<%= emp.lastName %>" <%= (formMode == 'showDetails') ? 'disabled' : '' %>  />
+            <span id="errorLastName" class="error-text"></span>
+
+           <label for="phone_number">Numer telefonu: +48<span class="symbol-not-required"></span></label> 
+           <input type="tel" name="phone_number" id="phone_number" maxlength="9" placeholder="123 456 789"  
+           value="<%= emp.phone_number %>" <%= (formMode == 'showDetails') ? 'disabled' : '' %> />
+           <span id="errorPhoneNumber" class="error-text"></span>
+
+           <label for="address">Adres: <span class="symbol-required">*</span></label>
+           <input type="text" name="address" id="address" placeholder="ul. Jana Pawła II, Radzymin 05-250"  
+           value="<%= emp.address %>" <%= (formMode == 'showDetails') ? 'disabled' : '' %> />
+           <span id="errorAddress" class="error-text"></span>
+
+           <% if (formMode == 'showDetails') { %>
+            <div class="section-buttons">
+                <a href="/employee/edit/<%= emp._id %>" class="button-edit">Edytuj</a>
+            </div>
+            <% } %>
+          </form>
+        
+            <% if (formMode == 'showDetails' || formMode == 'edit') { %> 
+              <h2>Szczegóły napraw </h2>
+              <table class="table-list">
+                <thead>
+                  <tr>
+                    <th>Auto</th>
+                    <th>Opis Naprawy</th>
+                    <th>Data Naprawy</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                    <% for (let e of emp.repairments) { %>
+                      <tr>
+                        <td><a href="/cars/details/<%= e.car._id %>">
+                          <%= e.car.maker + " " + e.car.model %>
+                        </a></td>
+                        <td><%= e.description %></td>
+                        <td><%= e.repairment_date.toISOString().split('T')[0] %></td>
+
+                      </tr>
+                      <% } %>
+                  </tbody>
+              </table>
+              <% } %>
+
+
+
+
+        <div class="form-buttons">
+          <p id="errorsSummary" class="error-text"></p>
+          <% if (formMode != 'showDetails') { %>
+            <input type="submit" value="<%=btnLabel%>"   class="form-button-submit"/>
+            <a href="/employee" class="form-button-cancel">Anuluj</a>
+            <% } else { %>
+              <a class="form-button-cancel" href="/employee">Powrót</a>
+              <% } %>
+        </div>
+         
+
+        </main>
+        <%- include('../../fragments/footer.ejs') %>

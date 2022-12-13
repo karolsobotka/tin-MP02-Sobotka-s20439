@@ -11,47 +11,21 @@
 
             </tr>
             </thead>
-            <tr>
-                <td>Porsche</td>
-                <td>911</td>
-                <td>WWL XX2200</td>
-                <td class="list-actions"><ul>
-                    <li><a href="repairments/add-repairment" class="list-actions-button-details">Dodaj Naprawę</a></li>
-                    <li><a href="" class="list-actions-button-delete">Usuń</a></li>
-                    <li><a href="cars/details/1" class="list-actions-button-edit">Historia Napraw</a></li>
-                </ul></td>
-                
-            </tr>
-            <tr>
-                <td>Audi</td>
-                <td>R8</td>
-                <td>WWL YY22AA</td>
-                <td class="list-actions"><ul>
-                    <li><a href="repairments/add-repairment" class="list-actions-button-details">Dodaj Naprawę</a></li>
-                    <li><a href="" class="list-actions-button-delete">Usuń</a></li>
-                    <li><a href="cars/details/2" class="list-actions-button-edit">Historia Napraw</a></li>
-                </ul></td>
-            </tr>
-            <tr>
-                <td>Mercedes-Benz</td>
-                <td>C300</td>
-                <td>WWL 123AA</td>
-                <td class="list-actions"><ul>
-                    <li><a href="repairments/add-repairment" class="list-actions-button-details">Dodaj Naprawę</a></li>
-                    <li><a href="" class="list-actions-button-delete">Usuń</a></li>
-                    <li><a href="cars/details/3" class="list-actions-button-edit">Historia Napraw</a></li>
-                </ul></td>
-            </tr>
-            <tr>
-                <td>Porsche</td>
-                <td>Tycan</td>
-                <td>WWL KSA721</td>
-                <td class="list-actions"><ul>
-                    <li><a href="repairments/add-repairment" class="list-actions-button-details">Dodaj Naprawę</a></li>
-                    <li><a href="" class="list-actions-button-delete">Usuń</a></li>
-                    <li><a href="cars/details/4" class="list-actions-button-edit">Historia Napraw</a></li>
-                </ul></td>
-            </tr>
+            <tbody>
+                <% for ( let car of cars) { %>
+                <tr>
+                    <td><%= car.maker %></td>
+                    <td><%= car.model %></td>
+                    <td><%= car.plates %></td>
+                    <td class="list-actions"><ul>
+                        <li><a href="cars/details/<%= car._id %>" class="list-actions-button-details">Szczegóły </a></li>
+                        <li><a href="cars/delete/<%= car._id %>" class="list-actions-button-delete">Usuń</a></li>
+                        <li><a href="cars/edit/<%= car._id %>" class="list-actions-button-edit">Edytuj Auto</a></li>
+                    </ul></td>
+                    
+                </tr>
+                <% } %>
+            </tbody>
            </table>
            <p><a href="cars/add" class="button-add">Dodaj nowe auto</a></p>
         </main>

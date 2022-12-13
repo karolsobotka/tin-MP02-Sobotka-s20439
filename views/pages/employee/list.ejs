@@ -11,17 +11,23 @@
                     <th>Akcje</th>
                 </tr>
             </thead>
-            <tr>
-                <td>Karol</td>
-                <td>Sobotka</td>
-                <td>797169904</td>
-                <td>Maczka 30, 05-250 Radzymin</td>
-                <td class="list-actions"><ul>
-                    <li><a href="/repairments/add-repairment" class="list-actions-button-details">Dodaj Naprawę</a></li>
-                    <li><a href="" class="list-actions-button-delete">Usuń Pracownika</a></li>
-                    <li><a href="/employee/edit" class="list-actions-button-edit">Edytuj Pracownika</a></li>
-                </ul></td>
-            </tr>
+            <tbody>
+                <% for (let emp of emps) { %>
+                    <tr>
+                    <td><%= emp.firstName %></td>
+                    <td><%= emp.lastName %></td>
+                    <td><%= emp.phone_number %></td>
+                    <td><%= emp.address %></td>
+
+                    <td class="list-actions"><ul>
+                        <li><a href="/employee/details/<%= emp._id %>" class="list-actions-button-details">Szczegóły</a></li>
+                        <li><a href="/employee/delete/<%= emp._id %>" class="list-actions-button-delete">Usuń Pracownika</a></li>
+                        <li><a href="/employee/edit/<%= emp._id %>" class="list-actions-button-edit">Edytuj Pracownika</a></li>
+                    </ul></td>
+                    </tr>
+                <% } %>
+            </tbody>
+            
            </table>
            <p><a href="/employee/add" class="button-add">Dodaj nowego pracownika</a></p>
         </main>

@@ -137,6 +137,7 @@ main h2 {
 .list-actions-button-edit,
 .list-actions-button-delete,
 .button-add,
+.button-edit,
 .form-button-submit,
 .form-button-cancel {
     border: none;
@@ -179,17 +180,20 @@ h1{
 }
 
 .button-add,
+.button-edit,
 .form-button-submit,
 .form-button-cancel {
     padding: 0.5rem 1rem;
 }
 
 .button-add,
+.button-edit,
 .form-button-submit {
     background-color: #27ae60;
 }
 
 .button-add:hover,
+.button-edit:hover
 .form-button-submit:hover {
     background-color: #2ecc71;
 }

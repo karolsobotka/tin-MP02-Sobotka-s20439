@@ -5,7 +5,7 @@ const empApiController = require('../../api/employeeApi');
 
 router.get('/', empApiController.getEmployees);
 router.get('/:empId', empApiController.getEmployeeById);
-router.post('/add', empApiController.createEmployee );
+router.post('/add', empApiController.createEmployee);
 router.delete('/:empId', empApiController.deleteEmployee);
 router.put('/:empId', empApiController.updateEmployee);
 

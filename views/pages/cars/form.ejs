@@ -1,0 +1,72 @@
+<%- include('../../fragments/header.ejs') %>
+<script type="application/javascript" src="/public/resources/code/validateCarForm.js"></script>
+
+        <main>
+         <h1><%= pageTitle %></h1>
+         <form class="form" method="post" action="<%formAction%>" novalidate onsubmit="return validateFormCar();">
+         
+          <input type="hidden" name="_id" value="<%= car._id %>">
+
+           <label for="maker">Marka <span class="symbol-required">*</span></label> 
+           <input type="text" name="maker" id="maker" placeholder="2-60 znaków"  
+            value="<%= car.maker %>" <%= (formMode == 'showDetails') ? 'disabled' : '' %> />
+           <span id="errorMaker" class="error-text"></span>
+
+           <label for="model" > Model <span class="symbol-required">*</span></label>
+            <input type="text" name="model" id="model"  placeholder="2-60 znaków" 
+             value="<%= car.model %>" <%= (formMode == 'showDetails') ? 'disabled' : '' %>  />
+            <span id="errorModel" class="error-text"></span>
+
+           <label for="car-plates">Numer rejestracyjny <span class="symbol-not-required"></span></label> 
+           <input type="tel" name="plates" id="car-plates" maxlength="9" placeholder="123 456 789"  
+           value="<%= car.plates %>" <%= (formMode == 'showDetails') ? 'disabled' : '' %> />
+           <span id="errorCarPlates" class="error-text"></span>
+
+           <% if (formMode == 'showDetails') { %>
+            <div class="section-buttons">
+                <a href="/cars/edit/<%= car._id %>" class="button-edit">Edytuj</a>
+            </div>
+            <% } %>
+          </form>
+        
+            <% if (formMode == 'showDetails' || formMode == 'edit') { %> 
+              <h2>Szczegóły napraw </h2>
+              <table class="table-list">
+                <thead>
+                  <tr>
+                    <th>Mechanik</th>
+                    <th>Opis Naprawy</th>
+                    <th>Data Naprawy</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                    <% for (let c of car.repairments) { %>
+                      <tr>
+                        <td><a href="/employee/details/<%= c.employee._id %>">
+                          <%= c.employee.firstName + " " + c.employee.lastName %>
+                        </a></td>
+                        <td><%= c.description %></td>
+                        <td><%= c.repairment_date.toISOString().split('T')[0] %></td>
+
+                      </tr>
+                      <% } %>
+                  </tbody>
+              </table>
+              <% } %>
+
+
+
+
+        <div class="form-buttons">
+          <p id="errorsSummary" class="error-text"></p>
+          <% if (formMode != 'showDetails') { %>
+            <input type="submit" value="<%=btnLabel%>"   class="form-button-submit"/>
+            <a href="/employee" class="form-button-cancel">Anuluj</a>
+            <% } else { %>
+              <a class="form-button-cancel" href="/employee">Powrót</a>
+              <% } %>
+        </div>
+         
+
+        </main>
+        <%- include('../../fragments/footer.ejs') %>
