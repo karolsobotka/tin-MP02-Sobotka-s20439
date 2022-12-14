@@ -10,16 +10,43 @@ const Car = sequelize.define('Car',{
     },
     maker: {
         type: Sequelize.STRING,
-        allowNull: false
+        allowNull: false,
+        validate: {
+            notEmpty: {
+                msg: "Pole jest wymagane"
+            },
+            len: {
+                args: [2,60],
+                msg: "Pole powinno zawierać od 2 do 60 znaków"
+            },
+        }
     },
     model: {
         type: Sequelize.STRING,
-        allowNull: false
+        allowNull: false,
+        validate: {
+            notEmpty: {
+                msg: "Pole jest wymagane"
+            },
+            len: {
+                args: [2,60],
+                msg: "Pole powinno zawierać od 2 do 60 znaków"
+            },
+        }
     },
     plates: { 
         type: Sequelize.STRING,
         allowNull: false,
-        unique: true
+        unique: true,
+        validate: {
+            notEmpty: {
+                msg: "Pole jest wymagane"
+            },
+            len: {
+                args: [4,12],
+                msg: "Pole powinno zawierać od 2 do 60 znaków"
+            },
+        }
     }
 });
 

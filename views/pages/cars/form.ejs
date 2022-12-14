@@ -17,8 +17,8 @@
              value="<%= car.model %>" <%= (formMode == 'showDetails') ? 'disabled' : '' %>  />
             <span id="errorModel" class="error-text"></span>
 
-           <label for="car-plates">Numer rejestracyjny <span class="symbol-not-required"></span></label> 
-           <input type="tel" name="plates" id="car-plates" maxlength="9" placeholder="123 456 789"  
+           <label for="car-plates">Numer rejestracyjny <span class="symbol-required">*</span></label> 
+           <input type="tel" name="plates" id="car-plates" maxlength="10" placeholder="WWL 5420A"  
            value="<%= car.plates %>" <%= (formMode == 'showDetails') ? 'disabled' : '' %> />
            <span id="errorCarPlates" class="error-text"></span>
 

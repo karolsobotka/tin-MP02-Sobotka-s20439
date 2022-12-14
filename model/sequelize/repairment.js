@@ -11,18 +11,47 @@ const Repairment = sequelize.define('Repairment',{
     car_id: {
         type: Sequelize.INTEGER,
         allowNull: false,
+        validate: {
+            notEmpty: {
+                msg: "Pole jest wymagane"
+            },
+            len: {
+                args: [1, 1],
+                msg: "Pole powinno zawierać id auta naprawianego"
+            },
+        }
     },
     mechanic_id: {
         type: Sequelize.INTEGER,
         allowNull: false,
+        validate: {
+            notEmpty: {
+                msg: "Pole jest wymagane"
+            },
+            len: {
+                args: [1, 1],
+                msg: "Pole powinno zawierać id mechanika naprawiającego"
+            },
+        }
     },
     description: { 
         type: Sequelize.STRING,
         allowNull: true,
+        validate: {
+            len: {
+                args: [5, 300],
+                msg: "Pole powinno zawierać opis naprawy auta od 5 do 300 znaków"
+            },
+        }
     },
     repairment_date:{
         type: Sequelize.DATE,
         allowNull: false,
+        validate: {
+            notEmpty: {
+                msg: "Pole jest wymagane, podaj datę naprawy"
+            }, 
+        }
     }
 });
 

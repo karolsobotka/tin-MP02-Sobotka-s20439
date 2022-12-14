@@ -10,20 +10,54 @@ const Employee = sequelize.define('Employee',{
     },
     firstName: {
         type: Sequelize.STRING,
-        allowNull: false
+        allowNull: false,
+        validate: {
+            notEmpty: {
+                msg: "Pole jest wymagane"
+            },
+            len: {
+                args: [2,60],
+                msg: "Pole powinno zawierać od 2 do 60 znaków"
+            },
+        }
     },
     lastName: {
         type: Sequelize.STRING,
-        allowNull: false
+        allowNull: false,
+        validate: {
+            notEmpty: {
+                msg: "Pole jest wymagane"
+            },
+            len: {
+                args: [2,60],
+                msg: "Pole powinno zawierać od 2 do 60 znaków"
+            },
+        }
     },
     phone_number: { 
         type: Sequelize.INTEGER,
         allowNull: true,
-        unique: true
+        unique: true,
+        validate: {
+            len: {
+                args: [9,9],
+                msg: "Pole powinno zawierać 9 znaków"
+            },
+            
+        }
     },
     address: {
         type: Sequelize.STRING,
         allowNull: false,
+        validate: {
+            notEmpty: {
+                msg: "Pole jest wymagane"
+            },
+            len: {
+                args: [2,120],
+                msg: "Pole powinno zawierać od 2 do 60 znaków"
+            },
+        }
     }
 });
 
