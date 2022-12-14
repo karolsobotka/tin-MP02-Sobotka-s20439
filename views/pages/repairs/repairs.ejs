@@ -14,14 +14,13 @@
                 <tbody>
                     <% for (let repairment of repairments) { %>
                     <tr>
-                        <td><%= repairment.car_id %></td>
-                        <td><%= repairment.mechanic_id %></td>
+                        <td><%= repairment.car.maker + ' ' + repairment.car.model %></td>
+                        <td><%= repairment.employee.firstName + ' '+ repairment.employee.lastName %></td>
                         <td><%= repairment.description %></td>
                         <td><%= repairment.repairment_date.toISOString().split('T')[0] %></td>
                         <td class="list-actions">
                         <ul>
-                            <li><a href="/repairments/details/<%= repairment._id %>" class="list-actions-button-details">Szczegóły</a></li>
-                            <li><a href="/repairments/delete/<%= repairment._id %>"class="list-actions-button-delete">Usuń naprawę</a></li>
+                            <li><a href="/repairments/delete/<%= repairment._id %>" class="list-actions-button-delete">Usuń naprawę</a></li>
                             <li><a href="/repairments/edit/<%= repairment._id %>" class="list-actions-button-edit">Edytuj Naprawę</a></li>
                         </ul></td>
                     </tr>

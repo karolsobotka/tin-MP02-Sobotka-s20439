@@ -16,7 +16,7 @@ exports.showAddEmployeeForm = ( req, res, next) => {
         pageTitle: 'Nowy pracownik',
         formMode: 'createNew',
         btnLabel: 'Dodaj pracownika',
-        formAction: '/employee/add',
+        formAction: '/employeeApiRoute/add',
         navLocation: 'employee'
     });
 }
@@ -53,7 +53,7 @@ exports.showEditEmployeeForm = ( req, res, next) => {
     
 }
 
-exports.addEmployee = (req, rex, next) => {
+exports.addEmployee = (req, res, next) => {
     const empData = { ...req.body};
     EmployeeRepository.createEmployee(empData)
     .then(result => {
@@ -61,7 +61,7 @@ exports.addEmployee = (req, rex, next) => {
     });
 };
 
-exports.updateEmployee = (req, rex, next) => {
+exports.updateEmployee = (req, res, next) => {
     const empId = req.body._id;
     const empData = { ...req.body};
     EmployeeRepository.updateEmployee(empId, empData)
@@ -70,7 +70,7 @@ exports.updateEmployee = (req, rex, next) => {
     });
 };
 
-exports.deleteEmployee = (req, rex, next) => {
+exports.deleteEmployee = (req, res, next) => {
     const empId = req.params.empId;
     EmployeeRepository.deleteEmployee(empId)
     .then( () => {

@@ -19,8 +19,9 @@ exports.getRepairments = () => {
 };
 
 exports.getRepairmentById = (repairmentId) => {
-    return Repairment.findByPk(repairmentId, {include: [
-        {
+    return Repairment.findByPk(repairmentId, 
+    {
+        include: [{
             model: Employee,
             as: 'employee'
         },

@@ -1,5 +1,5 @@
 <%- include('../../fragments/header.ejs') %>
-<script type="application/javascript" src="/public/resources/code/validateEmpForm.js"></script>
+<script type="application/javascript" src="/resources/code/validateEmpForm.js"></script>
 
         <main>
          <h1><%= pageTitle %></h1>
@@ -32,7 +32,7 @@
                 <a href="/employee/edit/<%= emp._id %>" class="button-edit">Edytuj</a>
             </div>
             <% } %>
-          </form>
+          
         
             <% if (formMode == 'showDetails' || formMode == 'edit') { %> 
               <h2>Szczegóły napraw </h2>
@@ -72,6 +72,6 @@
               <% } %>
         </div>
          
-
+      </form>
         </main>
         <%- include('../../fragments/footer.ejs') %>

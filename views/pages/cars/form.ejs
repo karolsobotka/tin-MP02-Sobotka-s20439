@@ -1,5 +1,5 @@
 <%- include('../../fragments/header.ejs') %>
-<script type="application/javascript" src="/public/resources/code/validateCarForm.js"></script>
+<script type="application/javascript" src="/resources/code/validateCarForm.js"></script>
 
         <main>
          <h1><%= pageTitle %></h1>
@@ -27,11 +27,12 @@
                 <a href="/cars/edit/<%= car._id %>" class="button-edit">Edytuj</a>
             </div>
             <% } %>
-          </form>
+          
         
             <% if (formMode == 'showDetails' || formMode == 'edit') { %> 
-              <h2>Szczegóły napraw </h2>
+              
               <table class="table-list">
+                <h2>Szczegóły napraw </h2>
                 <thead>
                   <tr>
                     <th>Mechanik</th>
@@ -61,12 +62,12 @@
           <p id="errorsSummary" class="error-text"></p>
           <% if (formMode != 'showDetails') { %>
             <input type="submit" value="<%=btnLabel%>"   class="form-button-submit"/>
-            <a href="/employee" class="form-button-cancel">Anuluj</a>
+            <a href="/cars" class="form-button-cancel">Anuluj</a>
             <% } else { %>
-              <a class="form-button-cancel" href="/employee">Powrót</a>
+              <a class="form-button-cancel" href="/cars">Powrót</a>
               <% } %>
         </div>
          
-
+      </form>
         </main>
         <%- include('../../fragments/footer.ejs') %>

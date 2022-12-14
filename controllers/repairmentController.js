@@ -19,32 +19,32 @@ exports.showAddRepairmentForm = (req, res, next) => {
         return CarRepository.getCars()
         .then( cars => {
         allCars = cars;
-        res.render('pages/repairs/form', {
-            repairment: {},
-            formMode: 'createNew',
-            allEmps: allEmps,
-            allCars: allCars,
-            pageTitle: 'Nowa Naprawa',
-            btnLabel: 'Dodaj Naprawę',
-            formAction: 'repairment/add',
-            navLocation: 'repairment'});
+            res.render('pages/repairs/form', {
+                repairment: {},
+                formMode: 'createNew',
+                allEmps: allEmps,
+                allCars: allCars,
+                pageTitle: 'Nowa Naprawa',
+                btnLabel: 'Dodaj Naprawę',
+                formAction: '/repairments/add',
+                navLocation: 'repairments'
+            });
         }); 
     });
     
 };
 exports.showRepairmentDetails = ( req, res, next) => {
-    const repairmentId = req.params.empId;
+    const repairmentId = req.params.repairmentId;
     RepairmentRepository.getRepairmentById(repairmentId).then(
-        emp => {
-            res.render('pages/repairments/form', {
-                emp: emp,
+        repairment => {
+            res.render('pages/repairs/form', {
+                repairment: repairment,
                 formMode: 'showDetails',
                 pageTitle: 'Szczegóły naprawy',
                 formAction: '',
-                navLocation: 'repairment'
+                navLocation: 'repairments'
             });
-        }
-    )
+        });
     
 }
 
@@ -56,41 +56,42 @@ exports.showEditRepairmentForm = (req, res, next) => {
         return CarRepository.getCars()
         .then( cars => {
         allCars = cars;
-        res.render('pages/repairs/form', {
-            repairment: {},
-            formMode: 'edit',
-            allEmps: allEmps,
-            allCars: allCars,
-            pageTitle: 'Edytuj Naprawę',
-            btnLabel: 'Edytuj Naprawę',
-            formAction: 'repairment/edit',
-            navLocation: 'repairment'});
+            res.render('pages/repairs/form', {
+                repairment: {},
+                formMode: 'edit',
+                allEmps: allEmps,
+                allCars: allCars,
+                pageTitle: 'Edytuj Naprawę',
+                btnLabel: 'Edytuj Naprawę',
+                formAction: '/repairments/edit',
+                navLocation: 'repairments'
+            });
         }); 
     });
 };
 
 
-exports.addRepairment = (req, rex, next) => {
+exports.addRepairment = (req, res, next) => {
     const repairmentData = { ...req.body};
     RepairmentRepository.createRepairment(repairmentData)
     .then(result => {
-        res.redirect('/repairment');
+        res.redirect('/repairments');
     });
 };
 
-exports.updateRepairment = (req, rex, next) => {
+exports.updateRepairment = (req, res, next) => {
     const repairmentId = req.body._id;
     const repairmentData = { ...req.body};
     RepairmentRepository.updateRepairment(repairmentId, repairmentData)
     .then( result => {
-        res.redirect('/repairment');
+        res.redirect('/repairments');
     });
 };
 
-exports.deleteRepairment = (req, rex, next) => {
-    const repairmentId = req.params.empId;
+exports.deleteRepairment = (req, res, next) => {
+    const repairmentId = req.params.repairmentId;
     RepairmentRepository.deleteRepairment(repairmentId)
     .then( () => {
-        res.redirect('/repairment');
+        res.redirect('/repairments');
     });
 };

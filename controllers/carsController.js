@@ -15,7 +15,7 @@ exports.showAddCarForm = ( req, res, next) => {
         car: {},
         pageTitle: 'Nowy Samochód',
         formMode: 'createNew',
-        btnLabel: 'Dodaj pracownika',
+        btnLabel: 'Dodaj Samochód',
         formAction: '/car/add',
         navLocation: 'cars'});
 }

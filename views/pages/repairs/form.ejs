@@ -1,5 +1,5 @@
 <%- include('../../fragments/header.ejs') %>
-<script type="application/javascript" src="/public/resources/code/validateFormRepairment.js"></script>
+<script type="application/javascript" src="/resources/code/validateFormRepairment.js"></script>
 
         <main>
          <h1><%= pageTitle %></h1>
@@ -8,7 +8,7 @@
           <input type="hidden" name="_id" value="<%= repairment._id %>">
 
           <label for="carName">Auto<span class="symbol-required">*</span></label> 
-          <select id="car" name="carId" required <%= (formMode == 'showDetails') ? 'disabled' : '' %> >
+          <select id="car_id" name="car_id" required <%= (formMode == 'showDetails') ? 'disabled' : '' %> >
             <option value="" selected>--- Wybierz auto ---</option>
             <% for (let i=0; i<allCars.length; i++) { let car = allCars[i]; %>
               <option value="<%= car._id %>" label="<%= car.maker +' '+  car.model %>" 
@@ -18,10 +18,10 @@
             </select>
             <span id="errorCar" class="error-text"></span>
 
-
-            <label for="mechanic">Mechanik <span class="symbol-required">*</span></label>
-          <select id="employee" name="empId" required <%= (formMode == 'showDetails') ? 'disabled' : '' %> >
-            <option value="" selected>--- Wybierz mechanika ---</option>
+            
+              <label for="mechanic">Mechanik <span class="symbol-required">*</span></label>
+              <select id="mechanic_id" name="mechanic_id" required <%= (formMode == 'showDetails') ? 'disabled' : '' %> >
+              <option value="" selected>--- Wybierz mechanika ---</option>
             <% for (let i=0; i<allEmps.length; i++) { let emp = allEmps[i]; %>
               <option value="<%= emp._id %>" label="<%= emp.firstName +' '+  emp.lastName %>" 
                 <%= (repairment._id && emp._id.toString() == repairment.employee._id.toString()) ? 'selected' : ''%> >
@@ -35,16 +35,16 @@
             <span id="errorDescritpion" class="error-text"></span>
 
             <label for="repairDate">Data naprawy: <span class="symbol-required">*</span></label>
-             <input type="date" name="repairDate" id="repairDate" required/>
+             <input type="date" name="repairment_date" id="repairment_date" required/>
             <span id="errorRepairDate" class="error-text"></span>
-                    
+             
 
            <% if (formMode == 'showDetails') { %>
             <div class="section-buttons">
                 <a href="/repairment/edit/<%= repairment._id %>" class="button-edit">Edytuj</a>
             </div>
             <% } %>
-          </form>
+          
         
             
 
@@ -59,6 +59,7 @@
               <a class="form-button-cancel" href="/repairments">Powrót</a>
               <% } %>
         </div>
+      </form>
          
 
         </main>

@@ -2,7 +2,7 @@
 function validateFormEmployee() {
     const firstName = document.getElementById('firstName');
     const lastName = document.getElementById('lastName');
-    const phoneNumber = document.getElementById('phoneNumber');
+    const phoneNumber = document.getElementById('phone_number');
     const address = document.getElementById('address');
     const errorSummary = document.getElementById('errorsSummary');
 
@@ -36,7 +36,6 @@ function validateFormEmployee() {
         errorLastName.innerText = "Pole powinno zawierac od 2 do 60 znaków";
     }
 
-    checkPhoneNumber();
 
     if(!checkRequired(phoneNumber.value)){
         valid = false;
@@ -55,7 +54,7 @@ function validateFormEmployee() {
     }
 
     if(!valid){
-        errorsSummary.innerText = "Formularz zawiera błędy"
+        errorSummary.innerText = "Formularz zawiera błędy"
     }
 
     return valid;

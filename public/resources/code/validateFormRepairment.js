@@ -1,7 +1,7 @@
 function validateFormRepairment() {
-    const carName = document.getElementById('carName');
-    const mechanic = document.getElementById('mechanic');
-    const date = document.getElementById('repairDate');
+    const carName = document.getElementById('car_id');
+    const mechanic = document.getElementById('mechanic_id');
+    const date = document.getElementById('repairment_date');
 
     
     const errorCar = document.getElementById('errorCar');

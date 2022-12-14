@@ -18,7 +18,7 @@ const Repairment = sequelize.define('Repairment',{
     },
     description: { 
         type: Sequelize.STRING,
-        allowNull: false,
+        allowNull: true,
     },
     repairment_date:{
         type: Sequelize.DATE,
