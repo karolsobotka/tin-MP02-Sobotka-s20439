@@ -17,7 +17,9 @@ exports.showAddCarForm = ( req, res, next) => {
         formMode: 'createNew',
         btnLabel: 'Dodaj Samochód',
         formAction: '/car/add',
-        navLocation: 'cars'});
+        navLocation: 'cars',
+        validationErrors: []
+    });
 }
 
 exports.showEditCarForm = (req, res, next) => {
@@ -30,7 +32,9 @@ exports.showEditCarForm = (req, res, next) => {
             pageTitle: 'Edycja Samochodu',
             btnLabel: 'Edytuj samochód',
             formAction: '/car/edit',
-            navLocation: 'cars'
+            navLocation: 'cars',
+            validationErrors: []
+
         });
     });
     
@@ -54,6 +58,18 @@ exports.addCar = (req, res, next) => {
     CarsRepository.createCar(carData)
     .then(result => {
         res.redirect('/cars');
+    })
+    .catch(err => {
+        res.render('pages/cars/form', {
+            emp: empData,
+            pageTitle: 'Dodawanie Auta',
+            formMode: 'createNew',
+            btnLabel: 'Dodaj Auto',
+            formAction: '/car/add',
+            navLocation: 'car',
+            validationErrors: []
+
+        });
     });
 };
 
@@ -63,7 +79,18 @@ exports.updateCar = (req, res, next) => {
     CarsRepository.updateCar(carId, carData)
     .then( result => {
         res.redirect('/cars');
-    });
+    }).catch(err => {
+        res.render('pages/cars/form', {
+            emp: empData,
+            pageTitle: 'Edycja Auta',
+            formMode: 'edit',
+            btnLabel: 'Edytuj Auto',
+            formAction: '/car/edit',
+            navLocation: 'car',
+            validationErrors: []
+
+        });
+    });;
 };
 
 exports.deleteCar = (req, res, next) => {

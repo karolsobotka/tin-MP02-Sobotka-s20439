@@ -16,8 +16,10 @@ exports.showAddEmployeeForm = ( req, res, next) => {
         pageTitle: 'Nowy pracownik',
         formMode: 'createNew',
         btnLabel: 'Dodaj pracownika',
-        formAction: '/employeeApiRoute/add',
-        navLocation: 'employee'
+        formAction: '/employee/add',
+        navLocation: 'employee',
+        validationErrors: []
+
     });
 }
 
@@ -30,7 +32,9 @@ exports.showEmployeesDetails = ( req, res, next) => {
                 formMode: 'showDetails',
                 pageTitle: 'Szczegóły pracownika',
                 formAction: '',
-                navLocation: 'employee'
+                navLocation: 'employee',
+                validationErrors: []
+
             });
         }
     )
@@ -47,7 +51,10 @@ exports.showEditEmployeeForm = ( req, res, next) => {
             pageTitle: 'Edycja pracownika',
             btnLabel: 'Edytuj pracownika',
             formAction: '/employee/edit',
-            navLocation: 'employee'
+            navLocation: 'employee',
+            validationErrors: []
+
+
         });
     })
     
@@ -58,6 +65,17 @@ exports.addEmployee = (req, res, next) => {
     EmployeeRepository.createEmployee(empData)
     .then(result => {
         res.redirect('/employee');
+    })
+    .catch(err => {
+        res.render('pages/employee/form', {
+            emp: empData,
+            pageTitle: 'Nowy Pracownik',
+            formMode: 'createNew',
+            btnLabel: 'Nowy Pracownik',
+            formAction: '/employeeApiRoute/add',
+            navLocation: 'employee',
+            validationErrors: []
+        });
     });
 };
 
@@ -67,6 +85,22 @@ exports.updateEmployee = (req, res, next) => {
     EmployeeRepository.updateEmployee(empId, empData)
     .then( result => {
         res.redirect('/employee');
+    })
+    .catch(err => {
+        return EmployeeRepository.getEmployeeById(empId)
+        .then( emp => {
+            res.render('pages/employee/form', {
+                emp: emp,
+                pageTitle: 'Edycja Pracownika',
+                formMode: 'edit',
+                btnLabel: 'Edytuj Pracownika',
+                formAction: '/employeeApiRoute/:empId',
+                navLocation: 'employee',
+                validationErrors: []
+
+            });
+        });
+        
     });
 };
 

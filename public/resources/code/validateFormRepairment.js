@@ -20,20 +20,20 @@ function validateFormRepairment() {
         valid = false;
         carName.classList.add('error-input');
         errorCar.innerText = "Pole jest wymagane";
-    } else if(!checkTextLengthRange(carName.value, 2, 60)){
+    } else if(!checkTextLengthRange(carName.value, 1, 1)){
         valid = false;
         carName.classList.add('error-input');
-        errorCar.innerText = "Pole powinno zawierac od 2 do 60 znaków";
+        errorCar.innerText = "Pole powinno zawierać auto wybrane z listy";
     }
 
     if(!checkRequired(mechanic.value)){
         valid = false;
         mechanic.classList.add('error-input');
         errorMechanic.innerText = "Pole jest wymagane";
-    } else if(!checkTextLengthRange(mechanic.value, 2, 60)){
+    } else if(!checkTextLengthRange(mechanic.value, 1, 1)){
         valid = false;
         mechanic.classList.add('error-input');
-        errorMechanic.innerText = "Pole powinno zawierac od 2 do 60 znaków";
+        errorMechanic.innerText = "Pole powinno zawierac mechanika wybranego z listy";
     }
 
     if(!checkRequired(date.value)){
@@ -44,7 +44,7 @@ function validateFormRepairment() {
 
 
     if(!valid){
-        errorsSummary.innerText = "Formularz zawiera błędy"
+        errorSummary.innerText = "Formularz zawiera błędy"
     }
 
     return valid;

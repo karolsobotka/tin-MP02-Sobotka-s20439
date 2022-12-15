@@ -37,14 +37,14 @@ function validateFormCar() {
         valid = false;
         plates.classList.add('error-input');
         errorPlates.innerText = "Pole jest wymagane";
-    } else if(!checkTextLengthRange(plates.value, 3, 7)){
+    } else if(!checkTextLengthRange(plates.value, 4, 12)){
         valid = false;
         plates.classList.add('error-input');
-        errorModel.innerText = "Pole powinno zawierac od 3 do 7 znaków";
+        errorPlates.innerText = "Pole powinno zawierac od 4 do 12 znaków";
     }
 
     if(!valid){
-        errorsSummary.innerText = "Formularz zawiera błędy"
+        errorSummary.innerText = "Formularz zawiera błędy"
     }
 
     return valid;

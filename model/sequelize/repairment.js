@@ -39,8 +39,8 @@ const Repairment = sequelize.define('Repairment',{
         allowNull: true,
         validate: {
             len: {
-                args: [5, 300],
-                msg: "Pole powinno zawierać opis naprawy auta od 5 do 300 znaków"
+                args: [0, 300],
+                msg: "Pole powinno zawierać opis naprawy auta od 0 do 300 znaków"
             },
         }
     },

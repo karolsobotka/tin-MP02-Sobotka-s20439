@@ -9,7 +9,7 @@ router.get('/details/:carId', carController.showCarDetails);
 router.get('/edit/:carId', carController.showEditCarForm); 
 
 router.post('/add', carController.addCar);
-router.post('/edit', carController.updateCar);
+router.post('/edit/:carId', carController.updateCar);
 router.get('/delete/:carId', carController.deleteCar);
 
 

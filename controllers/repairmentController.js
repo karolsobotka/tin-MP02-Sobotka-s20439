@@ -26,8 +26,10 @@ exports.showAddRepairmentForm = (req, res, next) => {
                 allCars: allCars,
                 pageTitle: 'Nowa Naprawa',
                 btnLabel: 'Dodaj Naprawę',
-                formAction: '/repairments/add',
-                navLocation: 'repairments'
+                formAction: '/repairment/add',
+                navLocation: 'repairments',
+                validationErrors: []
+
             });
         }); 
     });
@@ -63,8 +65,10 @@ exports.showEditRepairmentForm = (req, res, next) => {
                 allCars: allCars,
                 pageTitle: 'Edytuj Naprawę',
                 btnLabel: 'Edytuj Naprawę',
-                formAction: '/repairments/edit',
-                navLocation: 'repairments'
+                formAction: '/repairment/edit',
+                navLocation: 'repairments',
+                validationErrors: []
+
             });
         }); 
     });
@@ -76,6 +80,18 @@ exports.addRepairment = (req, res, next) => {
     RepairmentRepository.createRepairment(repairmentData)
     .then(result => {
         res.redirect('/repairments');
+    })
+    .catch(err => {
+        res.render('pages/repairs/form', {
+            emp: empData,
+            pageTitle: 'Dodawanie Naprawy',
+            formMode: 'createNew',
+            btnLabel: 'Dodaj Naprawę',
+            formAction: '/repairmentApiRoute/add',
+            navLocation: 'rapairment',
+            validationErrors: []
+
+        });
     });
 };
 
@@ -85,6 +101,22 @@ exports.updateRepairment = (req, res, next) => {
     RepairmentRepository.updateRepairment(repairmentId, repairmentData)
     .then( result => {
         res.redirect('/repairments');
+    })
+    .catch(err => {
+        return RepairmentRepository.getRepairmentById(repairmentId)
+        .then( repairment => {
+            res.render('pages/repairs/form', {
+                repairment: repairment,
+                pageTitle: 'Edycja Naprawy',
+                formMode: 'edit',
+                btnLabel: 'Edytuj Naprawę',
+                formAction: '/repairment/edit',
+                navLocation: 'repairment',
+                validationErrors: []
+
+            });
+        });
+        
     });
 };
 

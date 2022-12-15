@@ -35,17 +35,9 @@ app.use('/repairments', repairmentsRouter);
 app.use('/cars', carRouter);
 
 app.use('/api/employee', empApiRouter);
-app.use('/api/employee/:empId', empApiRouter);
-app.use('/api/employee/add', empApiRouter);
-
 app.use('/api/car', carApiRouter);
-app.use('/api/car/:carId', carApiRouter);
-app.use('/api/car/add', carApiRouter);
-
-
 app.use('/api/repairment', repairmentApiRouter);
-app.use('/api/repairment/:repairmentId', repairmentApiRouter);
-app.use('/api/repairment/add', repairmentApiRouter);
+
 
 
 // catch 404 and forward to error handler

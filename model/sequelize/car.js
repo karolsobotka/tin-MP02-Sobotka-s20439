@@ -44,7 +44,7 @@ const Car = sequelize.define('Car',{
             },
             len: {
                 args: [4,12],
-                msg: "Pole powinno zawierać od 2 do 60 znaków"
+                msg: "Pole powinno zawierać od 4 do 12 znaków"
             },
         }
     }
