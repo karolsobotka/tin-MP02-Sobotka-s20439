@@ -51,27 +51,32 @@ exports.showRepairmentDetails = ( req, res, next) => {
 }
 
 exports.showEditRepairmentForm = (req, res, next) => {
+    const repairmentId = req.params.repairmentId;
     let allEmps, allCars;
     EmployeeRepository.getEmployees()
     .then( emps => {
         allEmps = emps;
         return CarRepository.getCars()
+    })
         .then( cars => {
         allCars = cars;
-            res.render('pages/repairs/form', {
-                repairment: {},
-                formMode: 'edit',
-                allEmps: allEmps,
-                allCars: allCars,
-                pageTitle: 'Edytuj Naprawę',
-                btnLabel: 'Edytuj Naprawę',
-                formAction: '/repairment/edit',
-                navLocation: 'repairments',
-                validationErrors: []
+        return RepairmentRepository
+        .getRepairmentById(repairmentId)
+    })
+    .then(repairment => {
+        res.render('pages/repairs/form', {
+            repairment: repairment,
+            formMode: 'edit',
+            allEmps: allEmps,
+            allCars: allCars,
+            pageTitle: 'Edytuj Naprawę',
+            btnLabel: 'Edytuj Naprawę',
+            formAction: '/repairment/edit',
+            navLocation: 'repairments',
+            validationErrors: []
 
-            });
-        }); 
-    });
+        });
+    });    
 };
 
 

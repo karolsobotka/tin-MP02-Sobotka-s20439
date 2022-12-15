@@ -10,34 +10,42 @@
            <label for="firstName">Imię <span class="symbol-required">*</span></label> 
            <input type="text" name="firstName" id="firstName" placeholder="2-60 znaków"  
             value="<%= emp.firstName %>" <%= (formMode == 'showDetails') ? 'disabled' : '' %>
-            />
+            class="<%= validationErrors.find(e => e.path.includes('firstName')) ? 'error-input' : '' %>">
            <span id="errorFirstName" class="error-text">
-           
+            <% if (validationErrors.find(e => e.path.includes('firstName'))) { %>
+              <%= validationErrors.find(e => e.path.includes('firstName')).message %>
+          <% } %>
            </span>
 
            <label for="lastName" > Nazwisko <span class="symbol-required">*</span></label>
             <input type="text" name="lastName" id="lastName"  placeholder="2-60 znaków" 
              value="<%= emp.lastName %>" <%= (formMode == 'showDetails') ? 'disabled' : '' %> 
-             />
+             class="<%= validationErrors.find(e => e.path.includes('lastName')) ? 'error-input' : '' %>">
              
             <span id="errorLastName" class="error-text">
-              
+              <% if (validationErrors.find(e => e.path.includes('lastName'))) { %>
+                <%= validationErrors.find(e => e.path.includes('lastName')).message %>
+            <% } %>
             </span>
 
            <label for="phone_number">Numer telefonu: +48<span class="symbol-not-required"></span></label> 
            <input type="tel" name="phone_number" id="phone_number" maxlength="9" placeholder="123 456 789"  
            value="<%= emp.phone_number %>" <%= (formMode == 'showDetails') ? 'disabled' : '' %> 
-           />
+           class="<%= validationErrors.find(e => e.path.includes('phone_number')) ? 'error-input' : '' %>">
            <span id="errorPhoneNumber" class="error-text">
-            
+            <% if (validationErrors.find(e => e.path.includes('phone_number'))) { %>
+              <%= validationErrors.find(e => e.path.includes('phone_number')).message %>
+          <% } %>
            </span>
 
            <label for="address">Adres: <span class="symbol-required">*</span></label>
            <input type="text" name="address" id="address" placeholder="ul. Jana Pawła II, Radzymin 05-250"  
            value="<%= emp.address %>" <%= (formMode == 'showDetails') ? 'disabled' : '' %>
-           />
+           class="<%= validationErrors.find(e => e.path.includes('address')) ? 'error-input' : '' %>">
            <span id="errorAddress" class="error-text">
-            
+            <% if (validationErrors.find(e => e.path.includes('address'))) { %>
+              <%= validationErrors.find(e => e.path.includes('address')).message %>
+          <% } %>
            </span>
 
            <% if (formMode == 'showDetails') { %>

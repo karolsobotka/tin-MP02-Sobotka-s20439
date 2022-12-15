@@ -10,24 +10,32 @@
            <label for="maker">Marka <span class="symbol-required">*</span></label> 
            <input type="text" name="maker" id="maker" placeholder="2-60 znaków"  
             value="<%= car.maker %>" <%= (formMode == 'showDetails') ? 'disabled' : '' %>
-            />
-           <span id="errorMaker" class="error-text">
             
+            class="<%= validationErrors.find(e => e.path.includes('maker')) ? 'error-input' : '' %>">
+           <span id="errorMaker" class="error-text">
+            <% if (validationErrors.find(e => e.path.includes('maker'))) { %>
+              <%= validationErrors.find(e => e.path.includes('maker')).message %>
+          <% } %>
            </span>
 
            <label for="model" > Model <span class="symbol-required">*</span></label>
             <input type="text" name="model" id="model"  placeholder="2-60 znaków" 
              value="<%= car.model %>" <%= (formMode == 'showDetails') ? 'disabled' : '' %>
-             />
-            <span id="errorModel" class="error-text">
-              
+             class="<%= validationErrors.find(e => e.path.includes('model')) ? 'error-input' : '' %>">
+             <span id="errorModel" class="error-text">
+              <% if (validationErrors.find(e => e.path.includes('model'))) { %>
+                <%= validationErrors.find(e => e.path.includes('model')).message %>
+            <% } %>
             </span>
 
            <label for="car-plates">Numer rejestracyjny <span class="symbol-required">*</span></label> 
            <input type="tel" name="plates" id="car-plates" maxlength="10" placeholder="WWL 5420A"  
            value="<%= car.plates %>" <%= (formMode == 'showDetails') ? 'disabled' : '' %> 
-           />
+           class="<%= validationErrors.find(e => e.path.includes('plates')) ? 'error-input' : '' %>">
            <span id="errorCarPlates" class="error-text">
+            <% if (validationErrors.find(e => e.path.includes('plates'))) { %>
+              <%= validationErrors.find(e => e.path.includes('plates')).message %>
+          <% } %>
            </span>
 
            <% if (formMode == 'showDetails') { %>
