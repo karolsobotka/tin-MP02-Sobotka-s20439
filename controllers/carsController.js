@@ -48,7 +48,11 @@ exports.showCarDetails = ( req, res, next) => {
             formMode: 'showDetails',
             pageTitle: 'Szczegóły Samochodu',
             formAction: '',
-            navLocation: 'cars'});
+            navLocation: 'cars',
+            validationErrors: []
+
+        })
+
     });
     
 };

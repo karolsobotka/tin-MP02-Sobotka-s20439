@@ -43,20 +43,20 @@
             </span>
 
             <label for="description">Opis: </label>
-            <input type="text" name="description" id="description" 
-            class="<%= validationErrors.find(e => e.path.includes('mechanic_id')) ? 'error-input' : '' %>" />
+            <input type="text" name="description" id="description" value="<%= repairment.description %>"
+            class="<%= validationErrors.find(e => e.path.includes('description')) ? 'error-input' : '' %>" />
             <span id="errorDescritpion" class="error-text">
               <% if (validationErrors.find(e => e.path.includes('description'))) { %>
                 <%= validationErrors.find(e => e.path.includes('description')).message %>
             <% } %>
             </span>
 
-            <label for="repairDate">Data naprawy: <span class="symbol-required">*</span></label>
-             <input type="date" name="repairment_date" id="repairment_date" required
-             class="<%= validationErrors.find(e => e.path.includes('mechanic_id')) ? 'error-input' : '' %>"/>
+            <label for="repairment_date">Data naprawy: <span class="symbol-required">*</span></label>
+             <input type="date" name="repairment_date" id="repairment_date" value="<%= repairment.repairment_date %>" required
+             class="<%= validationErrors.find(e => e.path.includes('repairment_date')) ? 'error-input' : '' %>"/>
             <span id="errorRepairDate" class="error-text">
-              <% if (validationErrors.find(e => e.path.includes('repairDate'))) { %>
-                <%= validationErrors.find(e => e.path.includes('repairDate')).message %>
+              <% if (validationErrors.find(e => e.path.includes('repairment_date'))) { %>
+                <%= validationErrors.find(e => e.path.includes('repairment_date')).message %>
             <% } %>
             </span>
              
