@@ -25,3 +25,22 @@
                 <li><a href="/repairments" class="<%=navLocation == 'repairments' ? 'active' : '' %>">Naprawy</a></li>      
              </ul>
         </nav>
+
+        <% if(!loggedUser) { %>
+        <div id="login">
+            <h5>Logowanie</h5>
+            <form method="post" action="/login" novalidate>
+                <label for="loginLogin">Login:</label>
+                <input type="email" id="loginLogin" name="login">
+
+                <label for="loginPassword">Hasło:</label>
+                <input type="password" id="loginPassword" name="password">
+                
+                <input type="submit" value="zaloguj sie">
+                <span id="loginErrors"><%= loginError ? loginError : ''%></span>
+            </form>
+        </div>
+        <% } else { %>
+            <span>Jesteś zalogowany jako: <%=loggedUser.firstName + " " + loggedUser.lastName %></span>
+            <a href="/logout">Wyloguj się</a>
+        <% } %>

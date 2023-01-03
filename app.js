@@ -17,6 +17,8 @@ const sequelizeInit = require('./config/sequelize/init');
 
 sequelizeInit().catch(err => {console.error(err)});
 
+
+
 var app = express();
 
 // view engine setup
@@ -28,6 +30,21 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+const session = require('express-session');
+app.use(session({
+  secret: 'my_secret_password',
+  resave: false
+}));
+
+app.use((req, res, next) => {
+  const loggedUser = req.session.loggedUser;
+  res.locals.loggedUser = loggedUser;
+  if(!res.locals.loginError){
+    res.locals.loginError = undefined;
+  }
+  next();
+});
 
 app.use('/', indexRouter);
 app.use('/employee', employeeRouter);

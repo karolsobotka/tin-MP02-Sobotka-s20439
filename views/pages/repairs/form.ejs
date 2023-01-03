@@ -31,7 +31,7 @@
 
               <option value="" selected>--- Wybierz mechanika ---</option>
             <% for (let i=0; i<allEmps.length; i++) { let emp = allEmps[i]; %>
-              <option value="<%= emp._id %>" label="<%= emp.firstName +' '+  emp.lastName %>" 
+              <option value="<%= emp._id %>" label="<%=% emp.firstName +' '+  emp.lastName >" 
                 <%= (repairment._id && emp._id.toString() == repairment.employee._id.toString()) ? 'selected' : ''%> >
               </option> 
               <% } %>

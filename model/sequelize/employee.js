@@ -34,6 +34,11 @@ const Employee = sequelize.define('Employee',{
             },
         }
     },
+    login: {
+        type: Sequelize.STRING,
+        allowNull: false
+
+    },
     phone_number: { 
         type: Sequelize.INTEGER,
         allowNull: true,
@@ -58,6 +63,10 @@ const Employee = sequelize.define('Employee',{
                 msg: "Pole powinno zawierać od 2 do 60 znaków"
             },
         }
+    },
+    password: {
+        type: Sequelize.STRING,
+        allowNull: false
     }
 });
 

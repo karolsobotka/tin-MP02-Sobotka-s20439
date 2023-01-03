@@ -4,6 +4,8 @@ const Repairment = require('../../model/sequelize/repairment');
 const sequelize = require('../../config/sequelize/sequelize');
 const e = require('express');
 const { EmptyResultError } = require('sequelize');
+const authUtil = require('../../util/authUtils');
+const passHash = authUtil.hashPassword('12345');
 
 module.exports = () => {
     Employee.hasMany(Repairment, {as: 'repairments', foreignKey: {name: 'mechanic_id', allowNull: false}, constraints: true, onDelete: 'CASCADE'}); 
@@ -20,8 +22,8 @@ module.exports = () => {
         .then(emps => {
             if(!emps || emps.length == 0){
                 return Employee.bulkCreate([
-                    {firstName: 'John', lastName: 'Kowalski', phone_number: 123123123, address: 'XYZ 11-111 ul. XXX 1' },
-                    {firstName: 'Adam', lastName: 'Mickiewicz', phone_number: 123567855, address: 'ZYX 22-222 ul. XXX 2'  }
+                    {firstName: 'John', lastName: 'Kowalski', login: 'joko12', phone_number: 123123123, address: 'XYZ 11-111 ul. XXX 1', password: passHash },
+                    {firstName: 'Adam', lastName: 'Mickiewicz', login: 'admi21', phone_number: 123567855, address: 'ZYX 22-222 ul. XXX 2', password: passHash }
                 ])
                 .then( ()=>{
                     return Employee.findAll();

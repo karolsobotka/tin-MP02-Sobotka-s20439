@@ -44,3 +44,12 @@ exports.deleteEmployee = (empId) => {
         where: {_id: empId}
     })
 }
+
+exports.findByLogin = (login) => {
+    return Employee.findOne(
+        {
+            where: {login: login}
+        }
+        );
+
+}
