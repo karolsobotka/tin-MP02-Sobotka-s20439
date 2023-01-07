@@ -7,40 +7,39 @@
         <meta name="content-type" content="text/html"/>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <script type="application/javascript" src="/resources/code/validationCommon.js"></script>
-        <title>MP01 STATIC WEBSITE</title>
     </head>
     
    
     <body>
         <header id="header">
             
-            <h1 class="h1-header">Pan Samochodzik - panel administracyjny</h1>
+            <h1 class="h1-header">Pan Samochodzik</h1>
             <img src="/resources/images/mechanik.jpg" id="header-img" alt="Pan Samochodzik logo" />
         </header>
         <nav>
             <ul>
-                <li><a href="/" class="<%=navLocation == 'main' ? 'active' : '' %>">Strona Główna</a></li> 
-                <li><a href="/cars" class="<%=navLocation == 'cars' ? 'active' : '' %>">Auta</a></li> 
-                <li><a href="/employee" class="<%=navLocation == 'employee' ? 'active' : '' %>">Mechanicy</a></li>
-                <li><a href="/repairments" class="<%=navLocation == 'repairments' ? 'active' : '' %>">Naprawy</a></li>      
+                <li><a href="/" class="<%=navLocation == 'main' ? 'active' : '' %>"><%= __('nav.main-page') %></a></li> 
+                <li><a href="/cars" class="<%=navLocation == 'cars' ? 'active' : '' %>"><%= __('nav.cars') %></a></li> 
+                <li><a href="/employee" class="<%=navLocation == 'employee' ? 'active' : '' %>"><%= __('nav.employees') %></a></li>
+                <li><a href="/repairments" class="<%=navLocation == 'repairments' ? 'active' : '' %>"><%= __('nav.repairs') %></a></li>      
              </ul>
         </nav>
 
         <% if(!loggedUser) { %>
         <div id="login">
-            <h5>Logowanie</h5>
+            <h5><%= __('login.h5') %></h5>
             <form method="post" action="/login" novalidate>
                 <label for="loginLogin">Login:</label>
                 <input type="email" id="loginLogin" name="login">
 
-                <label for="loginPassword">Hasło:</label>
+                <label for="loginPassword"><%= __('login.password') %></label>
                 <input type="password" id="loginPassword" name="password">
                 
-                <input type="submit" value="zaloguj sie">
+                <input type="submit" value="<%= __('login.login') %>">
                 <span id="loginErrors"><%= loginError ? loginError : ''%></span>
             </form>
         </div>
         <% } else { %>
-            <span>Jesteś zalogowany jako: <%=loggedUser.firstName + " " + loggedUser.lastName %></span>
-            <a href="/logout">Wyloguj się</a>
+            <span><%= __('login.loggedAs') %> <%=loggedUser.firstName + " " + loggedUser.lastName %></span>
+            <a href="/logout"><%= __('login.logout') %></a>
         <% } %>

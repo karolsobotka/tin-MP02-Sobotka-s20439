@@ -5,10 +5,10 @@
            <table class="table-list">
             <thead>
             <tr>
-                <th>Marka</th>
-                <th>Model</th>
-                <th class="hide-collumn">Numer Rejestracyjny</th>
-                <th>Akcje</th>
+                <th><%= __('car.fields.maker') %></th>
+                <th><%= __('car.fields.model') %></th>
+                <th class="hide-collumn"><%= __('car.fields.plates') %></th>
+                <th><%= __('car.fields.actions') %></th>
 
             </tr>
             </thead>
@@ -19,10 +19,10 @@
                     <td><%= car.model %></td>
                     <td><%= car.plates %></td>
                     <td class="list-actions"><ul>
-                        <li><a href="cars/details/<%= car._id %>" class="list-actions-button-details">Szczegóły </a></li>
+                        <li><a href="cars/details/<%= car._id %>" class="list-actions-button-details"><%= __('list.actions.details') %> </a></li>
                         <% if(loggedUser) { %>
-                        <li><a href="cars/delete/<%= car._id %>" class="list-actions-button-delete">Usuń</a></li>
-                        <li><a href="cars/edit/<%= car._id %>" class="list-actions-button-edit">Edytuj Auto</a></li>
+                        <li><a href="cars/delete/<%= car._id %>" class="list-actions-button-delete"><%= __('list.actions.delete') %></a></li>
+                        <li><a href="cars/edit/<%= car._id %>" class="list-actions-button-edit"><%= __('list.actions.edit') %></a></li>
                         <% } %>
                     </ul></td>
                     
@@ -32,7 +32,7 @@
            </table>
            <% if(loggedUser) { %>
 
-           <p><a href="cars/add" class="button-add">Dodaj nowe auto</a></p>
+           <p><a href="cars/add" class="button-add"><%= __('car.list.addNew') %></a></p>
            <% } %>
 
         </main>

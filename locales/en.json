@@ -1,0 +1,134 @@
+{
+	"main-page": {
+		"content": "Main Page"
+	},
+	"nav": {
+		"main-page": "Main Page",
+		"employees": "Mechanics",
+		"cars": "Cars",
+		"repairs": "Repairments"
+		},
+	"login": {
+		"h5": "Log-in",
+		"password": "Password",
+		"login": "Log In",
+		"loggedAs": "You are logged as: ",
+		"logout": "Log out"
+	},
+	"list": {
+		"actions": {
+			"title": "Actions",
+			"details": "Details",
+			"edit": "Edit",
+			"delete": "Delete"
+		}
+	},
+	"form": {
+		"actions": {
+			"return": "Return",
+			"edit": "Edit",
+			"cancel": "Cancel"
+		}
+	},
+	"emp": {
+		"fields": {
+			"firstName": "First Name",
+			"lastName": "Last Name",
+			"phone_number": "Phone Number",
+			"address": "Address",
+			"actions": "Actions"
+		},
+		"list": {
+			"title": "Mechanics",
+			"addNew": "Add new Mechanic",
+			"noData": "No mechanics in database",
+			"pageTitle": "Mechanics' list"
+		},
+		"form": {
+			"details": "Mechanic details",
+			"add": {
+				"pageTitle": "Adding Mechanic",
+				"btnLabel": "Add Mechanic",
+				"confirm": {
+					"header": "Confirmation",
+					"text": "Successfully added Mechanic"
+				}
+			},
+			"edit": {
+				"pageTitle": "Edit Mechanic",
+				"btnLabel": "Save Changes",
+				"confirm": {
+					"header": "Confirmation",
+					"text": "Successfully edited Mechanic"
+				}
+			}
+		}
+	},
+	"car": {
+		"fields": {
+			"maker": "Maker",
+			"model": "Model",
+			"plates": "Car Plates",
+			"actions": "Actions"
+		},
+		"list": {
+			"title": "Cars",
+			"addNew": "Add new Car",
+			"noData": "No Cars in database",
+			"pageTitle": "Car List"
+		},
+		"form": {
+			"details": "Repairments history",
+			"add": {
+				"pageTitle": "Repairment adding",
+				"btnLabel": "Add repairment",
+				"confirm": {
+					"header": "Confirmation",
+					"text": "Successfully added repairment"
+				}
+			},
+			"edit": {
+				"pageTitle": "Car edit",
+				"btnLabel": "Save Changes",
+				"confirm": {
+					"header": "Confirmation",
+					"text": "Car edited successfully"
+				}
+			}
+		}
+	},
+	"repairment": {
+		"fields": {
+			"car": "Car",
+			"mechanic": "Mechanic",
+			"descriptiom": "Repairment description",
+			"date": "Repairment date",
+			"actions": "Actions"
+		},
+		"list": {
+			"title": "Repairments",
+			"addNew": "Add new Repairment",
+			"noData": "No repairments in database",
+			"pageTitle": "Repairments list"
+		},
+		"form": {
+			"repairment": "history of Repairments",
+			"add": {
+				"pageTitle": "Repairment adding",
+				"btnLabel": "Add repairment",
+				"confirm": {
+					"header": "Confirmation",
+					"text": "Successfully added repairment"
+				}
+			},
+			"edit": {
+				"pageTitle": "Repairment edition",
+				"btnLabel": "Save Changes",
+				"confirm": {
+					"header": "Changes",
+					"text": "Successfully edited repairment"
+				}
+			}
+		}
+	}
+}

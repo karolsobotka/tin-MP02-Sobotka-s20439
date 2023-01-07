@@ -3,6 +3,8 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+const i18n = require('i18n');
+
 
 var indexRouter = require('./routes/index');
 const employeeRouter = require('./routes/employeeRoute');
@@ -19,9 +21,9 @@ const authUtils = require('./util/authUtils');
 
 sequelizeInit().catch(err => {console.error(err)});
 
-
-
 var app = express();
+
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -30,8 +32,18 @@ app.set('view engine', 'ejs');
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
+app.use(cookieParser('secret'));
 app.use(express.static(path.join(__dirname, 'public')));
+
+i18n.configure({
+  locales: ['pl', 'en'],
+  directory: path.join(__dirname, 'locales'),
+  objectNotation: true,
+  defaultLocale: 'pl',
+  cookie: 'mechanics-repairs-lang'
+});
+app.use(i18n.init);
+
 
 const session = require('express-session');
 app.use(session({
