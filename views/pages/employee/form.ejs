@@ -47,13 +47,15 @@
               <%= validationErrors.find(e => e.path.includes('address')).message %>
           <% } %>
            </span>
+           <% if(loggedUser) { %>
 
            <% if (formMode == 'showDetails') { %>
             <div class="section-buttons">
                 <a href="/employee/edit/<%= emp._id %>" class="button-edit">Edytuj</a>
             </div>
             <% } %>
-          
+            <% } %>
+
         
             <% if (formMode == 'showDetails' || formMode == 'edit') { %> 
               <h2>Szczegóły napraw </h2>

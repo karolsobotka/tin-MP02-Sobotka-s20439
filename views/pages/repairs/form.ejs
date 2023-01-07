@@ -60,13 +60,15 @@
             <% } %>
             </span>
              
+            <% if(loggedUser) { %>
 
            <% if (formMode == 'showDetails') { %>
             <div class="section-buttons">
                 <a href="/repairment/edit/<%= repairment._id %>" class="button-edit">Edytuj</a>
             </div>
             <% } %>
-          
+            <% } %>
+
         
             
 

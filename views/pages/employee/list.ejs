@@ -21,14 +21,22 @@
 
                     <td class="list-actions"><ul>
                         <li><a href="/employee/details/<%= emp._id %>" class="list-actions-button-details">Szczegóły</a></li>
+                        <% if(loggedUser) { %>
+
                         <li><a href="/employee/delete/<%= emp._id %>" class="list-actions-button-delete">Usuń Pracownika</a></li>
                         <li><a href="/employee/edit/<%= emp._id %>" class="list-actions-button-edit">Edytuj Pracownika</a></li>
+                        <% } %>
+
                     </ul></td>
                     </tr>
                 <% } %>
             </tbody>
             
            </table>
+           <% if(loggedUser) { %>
+
            <p><a href="/employee/add" class="button-add">Dodaj nowego pracownika</a></p>
+           <% } %>
+
         </main>
         <%- include('../../fragments/footer.ejs') %>

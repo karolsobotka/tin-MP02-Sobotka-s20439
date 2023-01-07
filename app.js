@@ -15,6 +15,8 @@ const repairmentApiRouter = require('./routes/api/repairmentApiRoute');
 
 const sequelizeInit = require('./config/sequelize/init');
 
+const authUtils = require('./util/authUtils');
+
 sequelizeInit().catch(err => {console.error(err)});
 
 
@@ -47,13 +49,13 @@ app.use((req, res, next) => {
 });
 
 app.use('/', indexRouter);
-app.use('/employee', employeeRouter);
+app.use('/employee',  employeeRouter);
 app.use('/repairments', repairmentsRouter);
 app.use('/cars', carRouter);
 
-app.use('/api/employee', empApiRouter);
-app.use('/api/car', carApiRouter);
-app.use('/api/repairment', repairmentApiRouter);
+app.use('/api/employee', authUtils.pertmiAuthenticatedUser, empApiRouter);
+app.use('/api/car', authUtils.pertmiAuthenticatedUser, carApiRouter);
+app.use('/api/repairment', authUtils.pertmiAuthenticatedUser, repairmentApiRouter);
 
 
 

@@ -7,6 +7,15 @@ exports.hashPassword = (passPlain) => {
 }
 
 exports.comparePassword = (passPlain, passHash) => {
-    const res = bcrypt.compareSync(passPlain,passHash);
+    const res = bcrypt.compareSync(passPlain, passHash);
     return res 
+}
+
+exports.pertmiAuthenticatedUser = (req, res, next) => {
+    const loggedUser = req.session.loggedUser;
+    if(loggedUser){
+        next();
+    } else {
+        throw new Error('Unauthorized access');
+    }
 }

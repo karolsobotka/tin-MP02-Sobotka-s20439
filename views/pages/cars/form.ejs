@@ -37,6 +37,7 @@
               <%= validationErrors.find(e => e.path.includes('plates')).message %>
           <% } %>
            </span>
+           <% if(loggedUser) { %>
 
            <% if (formMode == 'showDetails') { %>
             <div class="section-buttons">
@@ -44,7 +45,8 @@
             </div>
             <% } %>
           
-        
+            <% } %>
+
             <% if (formMode == 'showDetails' || formMode == 'edit') { %> 
               
               <table class="table-list">
