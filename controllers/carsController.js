@@ -13,9 +13,9 @@ exports.showCarsList = (req, res, next) => {
 exports.showAddCarForm = ( req, res, next) => {
     res.render('pages/cars/form', {
         car: {},
-        pageTitle: 'Nowy Samochód',
+        pageTitle: req.__('car.form.add.pageTitle'),
         formMode: 'createNew',
-        btnLabel: 'Dodaj Samochód',
+        btnLabel: req.__('car.form.add.btnLabel'),
         formAction: '/car/add',
         navLocation: 'cars',
         validationErrors: []
@@ -29,8 +29,8 @@ exports.showEditCarForm = (req, res, next) => {
         res.render('pages/cars/form', {
             car: car,
             formMode: 'edit',
-            pageTitle: 'Edycja Samochodu',
-            btnLabel: 'Edytuj samochód',
+            pageTitle: req.__('car.form.edit.pageTitle'),
+            btnLabel: req.__('car.form.edit.btnLabel'),
             formAction: '/car/edit',
             navLocation: 'cars',
             validationErrors: []
@@ -46,7 +46,7 @@ exports.showCarDetails = ( req, res, next) => {
         res.render('pages/cars/form', { 
             car: car,
             formMode: 'showDetails',
-            pageTitle: 'Szczegóły Samochodu',
+            pageTitle: req.__('car.form.details'),
             formAction: '',
             navLocation: 'cars',
             validationErrors: []
@@ -66,9 +66,9 @@ exports.addCar = (req, res, next) => {
     .catch(err => {
         res.render('pages/cars/form', {
             emp: empData,
-            pageTitle: 'Dodawanie Auta',
+            pageTitle: req.__('car.form.add.pageTitle'),
             formMode: 'createNew',
-            btnLabel: 'Dodaj Auto',
+            btnLabel: req.__('car.form.add.btnLabel'),
             formAction: '/car/add',
             navLocation: 'car',
             validationErrors: []
@@ -86,9 +86,9 @@ exports.updateCar = (req, res, next) => {
     }).catch(err => {
         res.render('pages/cars/form', {
             emp: empData,
-            pageTitle: 'Edycja Auta',
+            pageTitle: req.__('car.form.edit.pageTitle'),
             formMode: 'edit',
-            btnLabel: 'Edytuj Auto',
+            btnLabel: req.__('car.form.edit.btnLabel'),
             formAction: '/car/edit',
             navLocation: 'car',
             validationErrors: []

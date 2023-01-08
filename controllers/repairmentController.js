@@ -24,8 +24,8 @@ exports.showAddRepairmentForm = (req, res, next) => {
                 formMode: 'createNew',
                 allEmps: allEmps,
                 allCars: allCars,
-                pageTitle: 'Nowa Naprawa',
-                btnLabel: 'Dodaj Naprawę',
+                pageTitle: req.__('repairment.form.add.pageTitle'),
+                btnLabel: req.__('repairment.form.add.btnLabel'),
                 formAction: '/repairment/add',
                 navLocation: 'repairments',
                 validationErrors: []
@@ -42,7 +42,7 @@ exports.showRepairmentDetails = ( req, res, next) => {
             res.render('pages/repairs/form', {
                 repairment: repairment,
                 formMode: 'showDetails',
-                pageTitle: 'Szczegóły naprawy',
+                pageTitle: req.__('repairment.form.details'),
                 formAction: '',
                 navLocation: 'repairments'
             });
@@ -69,8 +69,8 @@ exports.showEditRepairmentForm = (req, res, next) => {
             formMode: 'edit',
             allEmps: allEmps,
             allCars: allCars,
-            pageTitle: 'Edytuj Naprawę',
-            btnLabel: 'Edytuj Naprawę',
+            pageTitle: req.__('repairment.form.edit.pageTitle'),
+            btnLabel: req.__('repairment.form.edit.btnLabel'),
             formAction: '/repairment/edit',
             navLocation: 'repairments',
             validationErrors: []
@@ -89,9 +89,9 @@ exports.addRepairment = (req, res, next) => {
     .catch(err => {
         res.render('pages/repairs/form', {
             emp: empData,
-            pageTitle: 'Dodawanie Naprawy',
+            pageTitle: req.__('repairment.form.add.pageTitle'),
             formMode: 'createNew',
-            btnLabel: 'Dodaj Naprawę',
+            btnLabel: req.__('repairment.form.add.btnLabel'),
             formAction: '/repairmentApiRoute/add',
             navLocation: 'rapairment',
             validationErrors: []
@@ -112,9 +112,9 @@ exports.updateRepairment = (req, res, next) => {
         .then( repairment => {
             res.render('pages/repairs/form', {
                 repairment: repairment,
-                pageTitle: 'Edycja Naprawy',
+                pageTitle: req.__('repairment.form.edit.pageTitle'),
                 formMode: 'edit',
-                btnLabel: 'Edytuj Naprawę',
+                btnLabel: req.__('repairment.form.edit.btnLabel'),
                 formAction: '/repairment/edit',
                 navLocation: 'repairment',
                 validationErrors: []

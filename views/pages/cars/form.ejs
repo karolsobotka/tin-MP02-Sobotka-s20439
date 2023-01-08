@@ -7,7 +7,7 @@
          
           <input type="hidden" name="_id" value="<%= car._id %>">
 
-           <label for="maker">Marka <span class="symbol-required">*</span></label> 
+           <label for="maker"><%= __('car.fields.maker') %><span class="symbol-required">*</span></label> 
            <input type="text" name="maker" id="maker" placeholder="2-60 znaków"  
             value="<%= car.maker %>" <%= (formMode == 'showDetails') ? 'disabled' : '' %>
             
@@ -18,7 +18,7 @@
           <% } %>
            </span>
 
-           <label for="model" > Model <span class="symbol-required">*</span></label>
+           <label for="model" ><%= __('car.fields.model') %> <span class="symbol-required">*</span></label>
             <input type="text" name="model" id="model"  placeholder="2-60 znaków" 
              value="<%= car.model %>" <%= (formMode == 'showDetails') ? 'disabled' : '' %>
              class="<%= validationErrors.find(e => e.path.includes('model')) ? 'error-input' : '' %>">
@@ -28,7 +28,7 @@
             <% } %>
             </span>
 
-           <label for="car-plates">Numer rejestracyjny <span class="symbol-required">*</span></label> 
+           <label for="car-plates"><%= __('car.fields.plates') %> <span class="symbol-required">*</span></label> 
            <input type="tel" name="plates" id="car-plates" maxlength="10" placeholder="WWL 5420A"  
            value="<%= car.plates %>" <%= (formMode == 'showDetails') ? 'disabled' : '' %> 
            class="<%= validationErrors.find(e => e.path.includes('plates')) ? 'error-input' : '' %>">
@@ -41,7 +41,7 @@
 
            <% if (formMode == 'showDetails') { %>
             <div class="section-buttons">
-                <a href="/cars/edit/<%= car._id %>" class="button-edit">Edytuj</a>
+                <a href="/cars/edit/<%= car._id %>" class="button-edit"><%= __('car.form.edit.editBtn') %></a>
             </div>
             <% } %>
           
@@ -50,12 +50,12 @@
             <% if (formMode == 'showDetails' || formMode == 'edit') { %> 
               
               <table class="table-list">
-                <h2>Szczegóły napraw </h2>
+                <h2><%= __('car.form.repairment-details') %></h2>
                 <thead>
                   <tr>
-                    <th>Mechanik</th>
-                    <th>Opis Naprawy</th>
-                    <th>Data Naprawy</th>
+                    <th><%= __('repairment.fields.mechanic') %></th>
+                    <th><%= __('repairment.fields.description') %></th>
+                    <th><%= __('repairment.fields.date') %></th>
                   </tr>
                   </thead>
                   <tbody>
@@ -80,9 +80,9 @@
           <p id="errorsSummary" class="error-text"></p>
           <% if (formMode != 'showDetails') { %>
             <input type="submit" value="<%=btnLabel%>"   class="form-button-submit"/>
-            <a href="/cars" class="form-button-cancel">Anuluj</a>
+            <a href="/cars" class="form-button-cancel"><%= __('form.actions.cancel') %></a>
             <% } else { %>
-              <a class="form-button-cancel" href="/cars">Powrót</a>
+              <a class="form-button-cancel" href="/cars"><%= __('form.actions.return') %></a>
               <% } %>
         </div>
          

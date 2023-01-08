@@ -42,6 +42,13 @@ i18n.configure({
   defaultLocale: 'pl',
   cookie: 'mechanics-repairs-lang'
 });
+app.use((req, res, next) => {
+  if(!res.locals.lang) {
+      const currentLang = req.cookies['mechanics-repairs-lang'];
+      res.locals.lang = currentLang;
+  }
+  next();
+});
 app.use(i18n.init);
 
 

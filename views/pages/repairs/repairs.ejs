@@ -4,11 +4,11 @@
            <table class="table-list">
             <thead>
                 <tr>
-                    <th>Auto</th>
-                    <th>Mechanik</th>
-                    <th>Opis naprawy</th>
-                    <th>Data naprawy</th>
-                    <th>Akcje</th>
+                    <th><%= __('repairment.fields.car') %></th>
+                    <th><%= __('repairment.fields.mechanic') %></th>
+                    <th><%= __('repairment.fields.description') %></th>
+                    <th><%= __('repairment.fields.date') %></th>
+                    <th><%= __('repairment.fields.actions') %></th>
                 </tr>
             </thead>
                 <tbody>
@@ -22,8 +22,8 @@
                         <ul>
                             <% if(loggedUser) { %>
 
-                            <li><a href="/repairments/delete/<%= repairment._id %>" class="list-actions-button-delete">Usuń naprawę</a></li>
-                            <li><a href="/repairments/edit/<%= repairment._id %>" class="list-actions-button-edit">Edytuj Naprawę</a></li>
+                            <li><a href="/repairments/delete/<%= repairment._id %>" class="list-actions-button-delete"><%= __('list.actions.delete') %></a></li>
+                            <li><a href="/repairments/edit/<%= repairment._id %>" class="list-actions-button-edit"><%= __('list.actions.edit') %></a></li>
                             <% } %>
 
                         </ul></td>
@@ -33,7 +33,7 @@
            </table>
            <% if(loggedUser) { %>
 
-           <p><a href="/repairments/add" class="button-add">Dodaj nową naprawę</a></p>
+           <p><a href="/repairments/add" class="button-add"><%= __('repairment.form.add.btnLabel') %></a></p>
            <% } %>
         </main>
         <%- include('../../fragments/footer.ejs') %>

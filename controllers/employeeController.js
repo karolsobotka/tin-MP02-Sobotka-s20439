@@ -13,9 +13,9 @@ exports.showEmployeeList = (req, res, next) => {
 exports.showAddEmployeeForm = ( req, res, next) => {
     res.render('pages/employee/form', {
         emp: {},
-        pageTitle: 'Nowy pracownik',
+        pageTitle: req.__('emp.form.add.pageTitle'),
         formMode: 'createNew',
-        btnLabel: 'Dodaj pracownika',
+        btnLabel: req.__('emp.form.add.btnLabel'),
         formAction: '/employee/add',
         navLocation: 'employee',
         validationErrors: []
@@ -30,7 +30,7 @@ exports.showEmployeesDetails = ( req, res, next) => {
             res.render('pages/employee/form', {
                 emp: emp,
                 formMode: 'showDetails',
-                pageTitle: 'Szczegóły pracownika',
+                pageTitle: req.__('emp.form.details'),
                 formAction: '',
                 navLocation: 'employee',
                 validationErrors: []
@@ -48,8 +48,8 @@ exports.showEditEmployeeForm = ( req, res, next) => {
         res.render('pages/employee/form', {
             emp: emp,
             formMode: 'edit',
-            pageTitle: 'Edycja pracownika',
-            btnLabel: 'Edytuj pracownika',
+            pageTitle: req.__('emp.form.edit.pageTitle'),
+            btnLabel: req.__('emp.form.edit.btnLabel'),
             formAction: '/employee/edit',
             navLocation: 'employee',
             validationErrors: []
@@ -69,9 +69,9 @@ exports.addEmployee = (req, res, next) => {
     .catch(err => {
         res.render('pages/employee/form', {
             emp: empData,
-            pageTitle: 'Nowy Pracownik',
+            pageTitle: req.__('emp.form.add.pageTitle'),
             formMode: 'createNew',
-            btnLabel: 'Nowy Pracownik',
+            btnLabel: req.__('emp.form.add.btnLabel'),
             formAction: '/employeeApiRoute/add',
             navLocation: 'employee',
             validationErrors: []
@@ -91,9 +91,9 @@ exports.updateEmployee = (req, res, next) => {
         .then( emp => {
             res.render('pages/employee/form', {
                 emp: emp,
-                pageTitle: 'Edycja Pracownika',
+                pageTitle: req.__('emp.form.edit.pageTitle'),
                 formMode: 'edit',
-                btnLabel: 'Edytuj Pracownika',
+                btnLabel: req.__('emp.form.edit.pageTitle'),
                 formAction: '/employeeApiRoute/:empId',
                 navLocation: 'employee',
                 validationErrors: []

@@ -7,7 +7,7 @@
          
           <input type="hidden" name="_id" value="<%= emp._id %>">
 
-           <label for="firstName">Imię <span class="symbol-required">*</span></label> 
+           <label for="firstName"><%= __('emp.fields.firstName') %> <span class="symbol-required">*</span></label> 
            <input type="text" name="firstName" id="firstName" placeholder="2-60 znaków"  
             value="<%= emp.firstName %>" <%= (formMode == 'showDetails') ? 'disabled' : '' %>
             class="<%= validationErrors.find(e => e.path.includes('firstName')) ? 'error-input' : '' %>">
@@ -17,7 +17,7 @@
           <% } %>
            </span>
 
-           <label for="lastName" > Nazwisko <span class="symbol-required">*</span></label>
+           <label for="lastName" > <%= __('emp.fields.lastName') %> <span class="symbol-required">*</span></label>
             <input type="text" name="lastName" id="lastName"  placeholder="2-60 znaków" 
              value="<%= emp.lastName %>" <%= (formMode == 'showDetails') ? 'disabled' : '' %> 
              class="<%= validationErrors.find(e => e.path.includes('lastName')) ? 'error-input' : '' %>">
@@ -28,7 +28,7 @@
             <% } %>
             </span>
 
-           <label for="phone_number">Numer telefonu: +48<span class="symbol-not-required"></span></label> 
+           <label for="phone_number"><%= __('emp.fields.phone_number') %> +48<span class="symbol-not-required"></span></label> 
            <input type="tel" name="phone_number" id="phone_number" maxlength="9" placeholder="123 456 789"  
            value="<%= emp.phone_number %>" <%= (formMode == 'showDetails') ? 'disabled' : '' %> 
            class="<%= validationErrors.find(e => e.path.includes('phone_number')) ? 'error-input' : '' %>">
@@ -38,7 +38,7 @@
           <% } %>
            </span>
 
-           <label for="address">Adres: <span class="symbol-required">*</span></label>
+           <label for="address"><%= __('emp.fields.address') %>: <span class="symbol-required">*</span></label>
            <input type="text" name="address" id="address" placeholder="ul. Jana Pawła II, Radzymin 05-250"  
            value="<%= emp.address %>" <%= (formMode == 'showDetails') ? 'disabled' : '' %>
            class="<%= validationErrors.find(e => e.path.includes('address')) ? 'error-input' : '' %>">
@@ -51,7 +51,7 @@
 
            <% if (formMode == 'showDetails') { %>
             <div class="section-buttons">
-                <a href="/employee/edit/<%= emp._id %>" class="button-edit">Edytuj</a>
+                <a href="/employee/edit/<%= emp._id %>" class="button-edit"><%= __('form.actions.edit') %></a>
             </div>
             <% } %>
             <% } %>
@@ -62,9 +62,9 @@
               <table class="table-list">
                 <thead>
                   <tr>
-                    <th>Auto</th>
-                    <th>Opis Naprawy</th>
-                    <th>Data Naprawy</th>
+                    <th><%= __('repairment.fields.car') %></th>
+                    <th><%= __('repairment.fields.mechanic') %></th>
+                    <th><%= __('repairment.fields.date') %></th>
                   </tr>
                   </thead>
                   <tbody>
@@ -89,9 +89,9 @@
           <p id="errorsSummary" class="error-text"></p>
           <% if (formMode != 'showDetails') { %>
             <input type="submit" value="<%=btnLabel%>"   class="form-button-submit"/>
-            <a href="/employee" class="form-button-cancel">Anuluj</a>
+            <a href="/employee" class="form-button-cancel"><%= __('form.actions.cancel') %></a>
             <% } else { %>
-              <a class="form-button-cancel" href="/employee">Powrót</a>
+              <a class="form-button-cancel" href="/employee"><%= __('form.actions.return') %></a>
               <% } %>
         </div>
          

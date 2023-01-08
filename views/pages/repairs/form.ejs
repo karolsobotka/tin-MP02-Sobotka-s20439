@@ -7,11 +7,11 @@
          
           <input type="hidden" name="_id" value="<%= repairment._id %>">
 
-          <label for="carName">Auto<span class="symbol-required">*</span></label> 
+          <label for="carName"><%= __('repairment.fields.car') %><span class="symbol-required">*</span></label> 
           <select id="car_id" name="car_id" required <%= (formMode == 'showDetails') ? 'disabled' : '' %> 
             class="<%= validationErrors.find(e => e.path.includes('car_id')) ? 'error-input' : '' %>">
             
-            <option value="" selected>--- Wybierz auto ---</option>
+            <option value="" selected><%= __('repairment.form.add.car-list') %></option>
             <% for (let i=0; i<allCars.length; i++) { let car = allCars[i]; %>
               <option value="<%= car._id %>" label="<%= car.maker +' '+  car.model %>" 
                 <%= (repairment._id && car._id.toString() == repairment.car._id.toString()) ? 'selected' : ''%> >
@@ -25,14 +25,14 @@
             </span>
 
             
-              <label for="mechanic">Mechanik <span class="symbol-required">*</span></label>
+              <label for="mechanic"><%= __('repairment.fields.mechanic') %> <span class="symbol-required">*</span></label>
               <select id="mechanic_id" name="mechanic_id" required <%= (formMode == 'showDetails') ? 'disabled' : '' %> 
                 class="<%= validationErrors.find(e => e.path.includes('mechanic_id')) ? 'error-input' : '' %>">
 
-              <option value="" selected>--- Wybierz mechanika ---</option>
+              <option value="" selected><%= __('repairment.form.add.mechanic-list') %></option>
             <% for (let i=0; i<allEmps.length; i++) { let emp = allEmps[i]; %>
-              <option value="<%= emp._id %>" label="<%=% emp.firstName +' '+  emp.lastName >" 
-                <%= (repairment._id && emp._id.toString() == repairment.employee._id.toString()) ? 'selected' : ''%> >
+              <option value="<%= emp._id %>" label="<%= emp.firstName +' '+  emp.lastName %>" 
+                <%= (repairment._id && emp._id.toString() == repairment.employee._id.toString()) ? 'selected' : '' %> >
               </option> 
               <% } %>
             </select>
@@ -42,7 +42,7 @@
             <% } %>
             </span>
 
-            <label for="description">Opis: </label>
+            <label for="description"><%= __('repairment.fields.description') %>: </label>
             <input type="text" name="description" id="description" value="<%= repairment.description %>"
             class="<%= validationErrors.find(e => e.path.includes('description')) ? 'error-input' : '' %>" />
             <span id="errorDescritpion" class="error-text">
@@ -51,7 +51,7 @@
             <% } %>
             </span>
 
-            <label for="repairment_date">Data naprawy: <span class="symbol-required">*</span></label>
+            <label for="repairment_date"><%= __('repairment.fields.date') %>: <span class="symbol-required">*</span></label>
              <input type="date" name="repairment_date" id="repairment_date" value="<%= repairment.repairment_date %>" required
              class="<%= validationErrors.find(e => e.path.includes('repairment_date')) ? 'error-input' : '' %>"/>
             <span id="errorRepairDate" class="error-text">
@@ -64,7 +64,7 @@
 
            <% if (formMode == 'showDetails') { %>
             <div class="section-buttons">
-                <a href="/repairment/edit/<%= repairment._id %>" class="button-edit">Edytuj</a>
+                <a href="/repairment/edit/<%= repairment._id %>" class="button-edit"><%= __('list.actions.edit') %></a>
             </div>
             <% } %>
             <% } %>
@@ -78,9 +78,9 @@
           <p id="errorsSummary" class="error-text"></p>
           <% if (formMode != 'showDetails') { %>
             <input type="submit" value="<%=btnLabel%>" class="form-button-submit"/>
-            <a href="/repairments" class="form-button-cancel">Anuluj</a>
+            <a href="/repairments" class="form-button-cancel"><%= __('form.actions.cancel') %></a>
             <% } else { %>
-              <a class="form-button-cancel" href="/repairments">Powrót</a>
+              <a class="form-button-cancel" href="/repairments"><%= __('form.actions.return') %></a>
               <% } %>
         </div>
       </form>

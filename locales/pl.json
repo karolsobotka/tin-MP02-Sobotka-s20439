@@ -8,128 +8,131 @@
 		"cars": "Auta",
 		"repairs": "Naprawy"
 	},
-    "login": {
-        "h5": "Logowanie",
-        "password": "Hasło",
-        "login": "Zaloguj się",
-        "loggedAs": "Jesteś zalogowany jako: ",
-        "logout": "Wyloguj się"
-    },
-    "list": {
-       "actions": {
-          "title": "Akcje",
-          "details": "Szczegóły",
-          "edit": "Edytuj",
-          "delete": "Usuń"
-       }
-    },
-   "form": {
-      "actions": {
-         "return": "Powrót",
-         "edit": "Edytuj",
-         "cancel": "Anuluj"
-      }
-   },
+	"login": {
+		"h5": "Logowanie",
+		"password": "Hasło",
+		"login": "Zaloguj się",
+		"loggedAs": "Jesteś zalogowany jako: ",
+		"logout": "Wyloguj się"
+	},
+	"list": {
+		"actions": {
+			"title": "Akcje",
+			"details": "Szczegóły",
+			"edit": "Edytuj",
+			"delete": "Usuń"
+		}
+	},
+	"form": {
+		"actions": {
+			"return": "Powrót",
+			"edit": "Edytuj",
+			"cancel": "Anuluj"
+		}
+	},
 	"emp": {
 		"fields": {
 			"firstName": "Imię",
 			"lastName": "Nazwisko",
 			"phone_number": "Numer Telefonu",
-            "address": "Adres",
-            "actions": "Akcje"
+			"address": "Adres",
+			"actions": "Akcje"
 		},
 		"list": {
 			"title": "Mechanicy",
-			"addNew": "Dodaj nowego pracownika",
-			"noData": "Brak pracowników w bazie",
+			"addNew": "Dodaj nowego mechanika",
+			"noData": "Brak mechanikow w bazie",
 			"pageTitle": "Lista pracowników"
 		},
 		"form": {
-			"details": "Szczegóły pracownika",
+			"details": "Szczegóły mechanika",
 			"add": {
-				"pageTitle": "Dodawanie pracownika",
-				"btnLabel": "Dodaj pracownika",
+				"pageTitle": "Dodawanie mechanika",
+				"btnLabel": "Dodaj mechanika",
 				"confirm": {
 					"header": "Potwierdzenie operacji",
-					"text": "Pomyślnie dodano pracownika"
+					"text": "Pomyślnie dodano mechanika"
 				}
 			},
 			"edit": {
-				"pageTitle": "Edycja pracownika",
+				"pageTitle": "Edycja mechanika",
 				"btnLabel": "Zapisz zmiany",
 				"confirm": {
 					"header": "Potwierdzenie operacji",
-					"text": "Pomyślnie zaktualizowano pracownika"
+					"text": "Pomyślnie zaktualizowano mechanika"
 				}
 			}
 		}
-        
 	},
-    "car": {
-        "fields": {
-            "maker": "Marka",
-            "model": "Model",
-            "plates": "Numery rejestracyjne",
-            "actions": "Akcje"
-        },
-        "list": {
-            "title": "Auta",
-            "addNew": "Dodaj nowe auto",
-            "noData": "Brak aut w bazie",
-            "pageTitle": "Lista Aut"
-        },
-        "form": {
-            "details": "Historia napraw",
-            "add": {
-                "pageTitle": "Dodawanie naprawy",
-                "btnLabel": "Dodaj naprawe",
-                "confirm": {
-                    "header": "Potwierdzenie operacji",
-                    "text": "Pomyślnie dodano pracownika"
-                }
-            },
-            "edit": {
-                "pageTitle": "Edycja auta",
-                "btnLabel": "Zapisz zmiany",
-                "confirm": {
-                    "header": "Potwierdzenie operacji",
-                    "text": "Pomyślnie zaktualizowano auto"
-                }
-            }
-        }
-    },
-    "repairment": {
-        "fields": {
-            "car": "Auto",
-            "mechanic": "Mechanik",
-            "descriptiom": "Opis naprawy",
-            "date": "Data naprawy",
-            "actions": "Akcje"
-        },
-        "list": {
-            "title": "Naprawy",
-            "addNew": "Dodaj nową naprawę",
-            "noData": "Brak napraw w bazie",
-            "pageTitle": "Lista napraw"
-        },
-        "form": {
-            "repairment": "Historia napraw",
-            "add": {
-                "pageTitle": "Dodawanie naprawy",
-                "btnLabel": "Dodaj naprawę",
-                "confirm": {
-                    "header": "Potwierdzenie operacji",
-                    "text": "Pomyślnie dodano naprawę"
-                }
-            },
-            "edit": {
-                "pageTitle": "Edycja naprawy",
-                "btnLabel": "Zapisz zmiany",
-                "confirm": {
-                    "header": "Potwierdzenie operacji",
-                    "text": "Pomyślnie zaktualizowano naprawę"
-                }
-            }
-        }
-    }
+	"car": {
+		"fields": {
+			"maker": "Marka",
+			"model": "Model",
+			"plates": "Numery rejestracyjne",
+			"actions": "Akcje"
+		},
+		"list": {
+			"title": "Auta",
+			"addNew": "Dodaj nowe auto",
+			"noData": "Brak aut w bazie",
+			"pageTitle": "Lista Aut"
+		},
+		"form": {
+			"details": "Szczegóły Auta",
+			"add": {
+				"pageTitle": "Dodawanie auta",
+				"btnLabel": "Dodaj auto",
+				"confirm": {
+					"header": "Potwierdzenie operacji",
+					"text": "Pomyślnie dodano auto"
+				}
+			},
+			"edit": {
+				"editBtn": "Edycja",
+				"pageTitle": "Edycja auta",
+				"btnLabel": "Zapisz zmiany",
+				"confirm": {
+					"header": "Potwierdzenie operacji",
+					"text": "Pomyślnie zaktualizowano auto"
+				}
+			}
+		}
+	},
+	"repairment": {
+		"details": " PL tutaj jest to pole bo w słowniku go nie było i chyba nie używam tego kontrollera",
+		"fields": {
+			"car": "Auto",
+			"mechanic": "Mechanik",
+			"description": "Opis naprawy",
+			"date": "Data naprawy",
+			"actions": "Akcje"
+			},
+		"list": {
+			"title": "Naprawy",
+			"addNew": "Dodaj nową naprawę",
+			"noData": "Brak napraw w bazie",
+			"pageTitle": "Lista napraw"
+		},
+		"form": {
+			"repairment": "Historia napraw",
+			"add": {
+				"pageTitle": "Dodawanie naprawy",
+				"btnLabel": "Dodaj naprawę",
+				"confirm": {
+					"header": "Potwierdzenie operacji",
+					"text": "Pomyślnie dodano naprawę"
+				},
+				"car-list": "--- Wybierz auto ---",
+				"mechanic-list": "--- Wybierz mechanika ---"
+			},
+			"edit": {
+				"pageTitle": "Edycja naprawy",
+				"btnLabel": "Zapisz zmiany",
+				"confirm": {
+					"header": "Potwierdzenie operacji",
+					"text": "Pomyślnie zaktualizowano naprawę"
+				}
+			}
+		}
+	}
 }

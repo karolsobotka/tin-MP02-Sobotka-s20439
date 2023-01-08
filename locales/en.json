@@ -7,7 +7,7 @@
 		"employees": "Mechanics",
 		"cars": "Cars",
 		"repairs": "Repairments"
-		},
+	},
 	"login": {
 		"h5": "Log-in",
 		"password": "Password",
@@ -78,16 +78,18 @@
 			"pageTitle": "Car List"
 		},
 		"form": {
-			"details": "Repairments history",
+			"details": "Car details",
+			"repairment-details": "Repairments details",
 			"add": {
-				"pageTitle": "Repairment adding",
-				"btnLabel": "Add repairment",
+				"pageTitle": "Car adding",
+				"btnLabel": "Add car",
 				"confirm": {
 					"header": "Confirmation",
-					"text": "Successfully added repairment"
+					"text": "Successfully added car"
 				}
 			},
 			"edit": {
+				"editBtn": "Edit",
 				"pageTitle": "Car edit",
 				"btnLabel": "Save Changes",
 				"confirm": {
@@ -98,10 +100,11 @@
 		}
 	},
 	"repairment": {
+		"details": "ENG tutaj jest to pole bo w słowniku go nie było i chyba nie używam tego kontrollera",
 		"fields": {
 			"car": "Car",
 			"mechanic": "Mechanic",
-			"descriptiom": "Repairment description",
+			"description": "Repairment description",
 			"date": "Repairment date",
 			"actions": "Actions"
 		},
@@ -112,14 +115,16 @@
 			"pageTitle": "Repairments list"
 		},
 		"form": {
-			"repairment": "history of Repairments",
+			"repairment": "History of Repairments",
 			"add": {
 				"pageTitle": "Repairment adding",
 				"btnLabel": "Add repairment",
 				"confirm": {
 					"header": "Confirmation",
 					"text": "Successfully added repairment"
-				}
+				},
+				"car-list": "--- Choose car ---",
+				"mechanic-list": "--- Choose Mechanic ---"
 			},
 			"edit": {
 				"pageTitle": "Repairment edition",
